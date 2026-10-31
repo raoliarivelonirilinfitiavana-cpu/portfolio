@@ -109,7 +109,7 @@
             box-shadow: 0 0 8px rgba(212, 175, 55, 0.15);
         }
         
-        /* Effet d'illumination intense au survol et au clic */
+        /* Effet d'illumination intense au survol et au clic (lumières externes) */
         .skill-btn:hover, .skill-btn:active {
             background: #d4af37;
             color: #0c1524;
@@ -136,7 +136,7 @@
             content-visibility: auto; /* Accélère grandement le rendu mobile */
         }
         
-        /* Points d'ancrage calculés mathématiquement selon les 13 pages (environ 7.69% par page) */
+        /* Points d'ancrage calculés mathématiquement selon vos pages exactes (7.69% par page) */
         .scroll-anchor {
             position: absolute;
             left: 0;
@@ -145,12 +145,12 @@
             visibility: hidden;
             pointer-events: none;
         }
-        #section-about { top: 0%; }          /* Page 1 */
-        #section-demarche { top: 23.07%; }   /* Page 4 (3 x 7.69%) */
-        #section- references { top: 30.76%; }/* Page 5 (4 x 7.69%) */
-        #section-social { top: 38.45%; }     /* Page 6 (5 x 7.69%) */
-        #section-edition { top: 76.90%; }    /* Page 11 (10 x 7.69%) */
-        #section-ecommerce { top: 92.28%; }  /* Page 13 (12 x 7.69%) */
+        #section-about { top: 0%; }           /* Page 1 : About me */
+        #section-demarche { top: 23.07%; }    /* Page 4 : Ma démarche (3 x 7.69%) */
+        #section-references { top: 30.76%; }  /* Page 5 : Quelques références avec logos (4 x 7.69%) */
+        #section-social { top: 38.45%; }      /* Page 6 : Social media (5 x 7.69%) */
+        #section-edition { top: 76.90%; }     /* Page 11 : Édition (10 x 7.69%) */
+        #section-ecommerce { top: 92.28%; }   /* Page 13 : E-commerce (12 x 7.69%) */
 
         /* Section de fin de page style Behance "Thanks for watching" */
         .contact-section {
@@ -223,19 +223,19 @@
             Création d'identités visuelles percutantes et de concepts graphiques sur-mesure. Traduction de vos valeurs en direction artistique unique.
         </p>
 
-        <!-- Titres cliquables avec effet lumineux -->
+        <!-- Titres cliquables avec effet lumineux externe -->
         <div class="nav-skills">
-            <a href="#section-about" class="skill-btn">About Me (P.1)</a>
-            <a href="#section-demarche" class="skill-btn">Ma Démarche (P.4)</a>
-            <a href="#section-references" class="skill-btn">Références (P.5)</a>
-            <a href="#section-social" class="skill-btn">Social Media (P.6)</a>
-            <a href="#section-edition" class="skill-btn">Édition (P.11)</a>
-            <a href="#section-ecommerce" class="skill-btn">E-commerce (P.13)</a>
+            <a href="#section-about" class="skill-btn">About Me</a>
+            <a href="#section-demarche" class="skill-btn">Ma Démarche</a>
+            <a href="#section-references" class="skill-btn">Références</a>
+            <a href="#section-social" class="skill-btn">Social Media</a>
+            <a href="#section-edition" class="skill-btn">Édition</a>
+            <a href="#section-ecommerce" class="skill-btn">E-commerce</a>
         </div>
     </header>
 
     <div class="container">
-        <!-- Repères invisibles positionnés précisément selon les 13 pages -->
+        <!-- Repères invisibles positionnés selon vos pages exactes -->
         <div id="section-about" class="scroll-anchor"></div>
         <div id="section-demarche" class="scroll-anchor"></div>
         <div id="section-references" class="scroll-anchor"></div>
@@ -260,5 +260,4 @@
     </footer>
 
 </body>
-    </html>
-    
+</html>
