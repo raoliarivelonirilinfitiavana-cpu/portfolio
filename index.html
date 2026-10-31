@@ -3,234 +3,252 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Creative Designer & 3D Artist</title>
-    <!-- Import de la police Poppins -->
+    <title>Nirilin - Portfolio Graphiste</title>
+    <!-- Importation de la police Poppins depuis Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg-color: #070707;
-            --card-bg: #111111;
-            --card-border: #222222;
-            --accent-orange: #ff5500;
-            --accent-gradient: linear-gradient(135deg, #ff5500 0%, #ff8800 100%);
-            --text-color: #ffffff;
-            --text-muted: #888888;
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+        
+        /* Défilement fluide et instantané */
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
+            background-color: #0c1524;
+            color: #ffffff;
             font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Effet de lueur d'ambiance en arrière-plan */
-        .ambient-glow {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 600px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(255, 85, 0, 0.15) 0%, rgba(7, 7, 7, 0) 70%);
-            z-index: -1;
-        }
-
-        header {
             text-align: center;
-            padding: 80px 20px 40px;
+            line-height: 1.6;
+        }
+        
+        /* En-tête moderne style Behance */
+        header {
+            padding: 50px 20px 35px 20px;
+            background: radial-gradient(circle at center, #162642 0%, #0c1524 100%);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+            position: relative;
+            z-index: 10;
+        }
+        
+        .small-subtitle {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #d4af37;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+        
+        h1 {
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin-bottom: 8px;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        
+        h1 .thin-name {
+            font-weight: 300;
+            color: #d4af37;
+        }
+        
+        .role-text {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+        
+        .divider {
+            width: 35px;
+            height: 2px;
+            background-color: #d4af37;
+            margin: 0 auto 20px auto;
+        }
+        
+        .portfolio-bio {
+            font-size: 0.8rem;
+            color: #cbd5e1;
+            max-width: 650px;
+            margin: 0 auto 25px auto;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+        
+        /* Boutons de compétences cliquables */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
             max-width: 800px;
             margin: 0 auto;
+        }
+        
+        .skill-badge {
+            background: #111e35;
+            color: #d4af37;
+            font-size: 0.7rem;
+            padding: 6px 14px;
+            border-radius: 6px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        
+        .skill-badge:hover {
+            background: #d4af37;
+            color: #0c1524;
+            transform: translateY(-2px);
+        }
+        
+        /* Conteneur et optimisation extrême de l'image */
+        .container {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #070b14;
             position: relative;
         }
+        
+        .portfolio-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: none;
+            margin: 0;
+            content-visibility: auto; /* Accélère grandement le rendu des très grandes images */
+        }
+        
+        /* Ancres de navigation invisibles positionnées sur l'image */
+        .scroll-anchor {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        /* Ajustez ces pourcentages si besoin selon l'emplacement exact dans votre image */
+        #section-identite { top: 15%; }
+        #section-charte { top: 30%; }
+        #section-social { top: 45%; }
+        #section-edition { top: 60%; }
+        #section-ecommerce { top: 75%; }
+        #section-packaging { top: 90%; }
 
-        header .badge {
-            display: inline-block;
-            padding: 6px 14px;
-            background: rgba(255, 85, 0, 0.1);
-            border: 1px solid rgba(255, 85, 0, 0.3);
-            color: var(--accent-orange);
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
+        /* Section de contact et fin de page */
+        .contact-section {
+            background: linear-gradient(0deg, #162642 0%, #0c1524 100%);
+            padding: 50px 20px;
+            border-top: 1px solid rgba(212, 175, 55, 0.25);
+        }
+        
+        .thanks-title {
+            font-size: 1.3rem;
+            letter-spacing: 2px;
+            font-weight: 300;
+            color: #ffffff;
             margin-bottom: 20px;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
-
-        header h1 {
-            font-size: 2.8rem;
-            margin-bottom: 15px;
+        
+        .thanks-title span {
             font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-
-        header h1 span {
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        header p {
+            color: #d4af37;
+            display: block;
+            margin-top: 5px;
             font-size: 1.1rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto;
         }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        .section-title {
-            font-size: 1.5rem;
-            margin-bottom: 25px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .section-title::before {
-            content: '';
+        
+        .contact-card {
+            background: #080e1a;
             display: inline-block;
-            width: 6px;
-            height: 24px;
-            background: var(--accent-gradient);
-            border-radius: 3px;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-        }
-
-        .project-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 16px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .project-card:hover {
-            border-color: rgba(255, 85, 0, 0.5);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(255, 85, 0, 0.1);
-        }
-
-        .project-img {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, #161616 0%, #0d0d0d 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            border-bottom: 1px solid var(--card-border);
-        }
-
-        .project-info {
-            padding: 24px;
-        }
-
-        .project-info h3 {
-            font-size: 1.25rem;
-            margin-bottom: 10px;
-            color: var(--text-color);
-            font-weight: 600;
-        }
-
-        .project-info p {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            padding: 12px 20px;
-            background: var(--accent-gradient);
-            color: #ffffff;
+            padding: 20px 30px;
             border-radius: 8px;
-            text-decoration: none;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            max-width: 450px;
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        .contact-card p {
+            font-size: 0.8rem;
+            color: #cbd5e1;
+            margin-bottom: 8px;
+        }
+        
+        .copyable-text {
+            user-select: text;
+            color: #d4af37;
             font-weight: 600;
-            font-size: 0.9rem;
-            transition: opacity 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 85, 0, 0.3);
         }
-
-        .btn:hover {
-            opacity: 0.9;
-        }
-
+        
         footer {
-            text-align: center;
-            padding: 60px 20px;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            border-top: 1px solid var(--card-border);
-            margin-top: 60px;
-        }
-
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 2.2rem;
-            }
+            background: #05080f;
+            padding: 20px;
+            font-size: 0.7rem;
+            color: #64748b;
+            border-top: 1px solid rgba(255,255,255,0.03);
+            letter-spacing: 0.5px;
         }
     </style>
 </head>
 <body>
 
-    <div class="ambient-glow"></div>
-
     <header>
-        <div class="badge">Creative Portfolio</div>
-        <h1>Don't miss <span>a new work</span></h1>
-        <p>Spécialisé en identité visuelle, interfaces UI/UX et modélisation 3D CGI de haute précision.</p>
+        <div class="small-subtitle">Portfolio Professionnel</div>
+        <h1><span class="thin-name">RAOLIARIVELO</span> Nirilin Fitiavana</h1>
+        <p class="role-text">Designer Graphique & Illustrateur — Antananarivo, Madagascar</p>
+        <div class="divider"></div>
+        <p class="portfolio-bio">
+            Création d'identités visuelles percutantes et de concepts graphiques sur-mesure. Traduction de vos valeurs en direction artistique unique.
+        </p>
+
+        <!-- Titres cliquables pour naviguer directement dans l'image -->
+        <div class="skills-container">
+            <a href="#section-identite" class="skill-badge">Identité Visuelle</a>
+            <a href="#section-charte" class="skill-badge">Charte Graphique</a>
+            <a href="#section-social" class="skill-badge">Social Media</a>
+            <a href="#section-edition" class="skill-badge">Édition & Print</a>
+            <a href="#section-ecommerce" class="skill-badge">E-commerce</a>
+            <a href="#section-packaging" class="skill-badge">Packaging</a>
+        </div>
     </header>
 
     <div class="container">
-        <h2 class="section-title">Featured Projects</h2>
-        <div class="projects-grid">
-            <!-- Projet 1 -->
-            <div class="project-card">
-                <div class="project-img">Rendu 3D / CGI Product</div>
-                <div class="project-info">
-                    <h3>Accessoires High-Tech 3D</h3>
-                    <p>Conception et mise en valeur visuelle de boîtiers de protection et périphériques gaming.</p>
-                    <a href="#" class="btn">Voir le projet</a>
-                </div>
-            </div>
+        <!-- Repères invisibles pour le saut de page au clic -->
+        <div id="section-identite" class="scroll-anchor"></div>
+        <div id="section-charte" class="scroll-anchor"></div>
+        <div id="section-social" class="scroll-anchor"></div>
+        <div id="section-edition" class="scroll-anchor"></div>
+        <div id="section-ecommerce" class="scroll-anchor"></div>
+        <div id="section-packaging" class="scroll-anchor"></div>
 
-            <!-- Projet 2 -->
-            <div class="project-card">
-                <div class="project-img">Identité Visuelle & Logo</div>
-                <div class="project-info">
-                    <h3>Logotype & Branding</h3>
-                    <p>Création d'identités minimalistes avec des déclinaisons vectorielles percutantes.</p>
-                    <a href="#" class="btn">Voir le projet</a>
-                </div>
-            </div>
+        <!-- Image optimisée pour un chargement maximal fluide -->
+        <img src="portfolio.jpg" alt="Portfolio de Nirilin" class="portfolio-img" loading="eager" decoding="async">
+    </div>
 
-            <!-- Projet 3 -->
-            <div class="project-card">
-                <div class="project-img">Mobile Interface UI/UX</div>
-                <div class="project-info">
-    
+    <section class="contact-section">
+        <h2 class="thanks-title">Thanks for watching <span>Don't miss a new work</span></h2>
+        <div class="contact-card">
+            <p>📞 Téléphone / WhatsApp : <br><span class="copyable-text">+261 34 61 293 96</span></p>
+            <p style="margin-top: 10px;">📧 Email : <br><span class="copyable-text">raoliarivelonirilinfitiavana@gmail.com</span></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Nirilin. Tous droits réservés.</p>
+    </footer>
+
+</body>
+</html>
