@@ -25,11 +25,11 @@
             line-height: 1.6;
         }
         
-        /* En-tête ultra-moderne inspiré de votre référence visuelle */
+        /* En-tête ultra-moderne avec lueur dorée */
         header {
             padding: 70px 20px 45px 20px;
             background: radial-gradient(circle at center, #162642 0%, #0c1524 100%);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
             position: relative;
             z-index: 10;
         }
@@ -70,6 +70,7 @@
             height: 2px;
             background-color: #d4af37;
             margin: 0 auto 25px auto;
+            box-shadow: 0 0 10px #d4af37;
         }
         
         .portfolio-bio {
@@ -81,13 +82,13 @@
             font-weight: 300;
         }
         
-        /* Boutons de compétences cliquables (Style badges modernes) */
+        /* Boutons de compétences cliquables avec effet de lueur externe */
         .nav-skills {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 10px;
-            max-width: 850px;
+            gap: 12px;
+            max-width: 900px;
             margin: 0 auto;
         }
         
@@ -95,22 +96,26 @@
             background: #111e35;
             color: #d4af37;
             font-size: 0.7rem;
-            padding: 7px 16px;
-            border-radius: 4px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 8px 18px;
+            border-radius: 6px;
+            border: 1px solid rgba(212, 175, 55, 0.4);
             font-weight: 500;
             text-decoration: none;
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: all 0.25s ease;
+            transition: all 0.3s ease;
             cursor: pointer;
+            /* Effet de lueur externe subtil par défaut */
+            box-shadow: 0 0 8px rgba(212, 175, 55, 0.15);
         }
         
-        .skill-btn:hover {
+        /* Effet d'illumination intense au survol et au clic */
+        .skill-btn:hover, .skill-btn:active {
             background: #d4af37;
             color: #0c1524;
             transform: translateY(-2px);
             border-color: #d4af37;
+            box-shadow: 0 0 20px #d4af37, 0 0 35px rgba(212, 175, 55, 0.6);
         }
         
         /* Conteneur de l'image optimisé pour une fluidité maximale */
@@ -128,10 +133,10 @@
             display: block;
             border: none;
             margin: 0;
-            content-visibility: auto; /* Accélère le rendu mobile */
+            content-visibility: auto; /* Accélère grandement le rendu mobile */
         }
         
-        /* Points d'ancrage invisibles pour les liens cliquables */
+        /* Points d'ancrage calculés mathématiquement selon les 13 pages (environ 7.69% par page) */
         .scroll-anchor {
             position: absolute;
             left: 0;
@@ -140,12 +145,12 @@
             visibility: hidden;
             pointer-events: none;
         }
-        #section-identite { top: 15%; }
-        #section-charte { top: 30%; }
-        #section-social { top: 45%; }
-        #section-edition { top: 60%; }
-        #section-ecommerce { top: 75%; }
-        #section-packaging { top: 90%; }
+        #section-about { top: 0%; }          /* Page 1 */
+        #section-demarche { top: 23.07%; }   /* Page 4 (3 x 7.69%) */
+        #section- references { top: 30.76%; }/* Page 5 (4 x 7.69%) */
+        #section-social { top: 38.45%; }     /* Page 6 (5 x 7.69%) */
+        #section-edition { top: 76.90%; }    /* Page 11 (10 x 7.69%) */
+        #section-ecommerce { top: 92.28%; }  /* Page 13 (12 x 7.69%) */
 
         /* Section de fin de page style Behance "Thanks for watching" */
         .contact-section {
@@ -170,6 +175,7 @@
             margin-top: 8px;
             font-size: 1.1rem;
             letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
         }
         
         .contact-card {
@@ -177,10 +183,10 @@
             display: inline-block;
             padding: 25px 35px;
             border-radius: 8px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.4);
             max-width: 450px;
             width: 100%;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.15);
         }
         
         .contact-card p {
@@ -193,6 +199,7 @@
             user-select: text;
             color: #d4af37;
             font-weight: 600;
+            text-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
         }
         
         footer {
@@ -216,27 +223,27 @@
             Création d'identités visuelles percutantes et de concepts graphiques sur-mesure. Traduction de vos valeurs en direction artistique unique.
         </p>
 
-        <!-- Titres cliquables de navigation rapide -->
+        <!-- Titres cliquables avec effet lumineux -->
         <div class="nav-skills">
-            <a href="#section-identite" class="skill-btn">Identité Visuelle</a>
-            <a href="#section-charte" class="skill-btn">Charte Graphique</a>
-            <a href="#section-social" class="skill-btn">Social Media</a>
-            <a href="#section-edition" class="skill-btn">Édition & Print</a>
-            <a href="#section-ecommerce" class="skill-btn">E-commerce</a>
-            <a href="#section-packaging" class="skill-btn">Packaging</a>
+            <a href="#section-about" class="skill-btn">About Me (P.1)</a>
+            <a href="#section-demarche" class="skill-btn">Ma Démarche (P.4)</a>
+            <a href="#section-references" class="skill-btn">Références (P.5)</a>
+            <a href="#section-social" class="skill-btn">Social Media (P.6)</a>
+            <a href="#section-edition" class="skill-btn">Édition (P.11)</a>
+            <a href="#section-ecommerce" class="skill-btn">E-commerce (P.13)</a>
         </div>
     </header>
 
     <div class="container">
-        <!-- Ancres invisibles positionnées pour le défilement fluide -->
-        <div id="section-identite" class="scroll-anchor"></div>
-        <div id="section-charte" class="scroll-anchor"></div>
+        <!-- Repères invisibles positionnés précisément selon les 13 pages -->
+        <div id="section-about" class="scroll-anchor"></div>
+        <div id="section-demarche" class="scroll-anchor"></div>
+        <div id="section-references" class="scroll-anchor"></div>
         <div id="section-social" class="scroll-anchor"></div>
         <div id="section-edition" class="scroll-anchor"></div>
         <div id="section-ecommerce" class="scroll-anchor"></div>
-        <div id="section-packaging" class="scroll-anchor"></div>
 
-        <!-- Image optimisée pour un affichage ultra-rapide -->
+        <!-- Image optimisée pour un affichage ultra-rapide et fluide -->
         <img src="portfolio.jpg" alt="Portfolio de Nirilin" class="portfolio-img" loading="eager" decoding="async">
     </div>
 
@@ -253,4 +260,5 @@
     </footer>
 
 </body>
-</html>
+    </html>
+    
