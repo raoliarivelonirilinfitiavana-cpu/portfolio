@@ -104,7 +104,7 @@
             font-weight: 300;
         }
         
-        /* Boutons de compétences cliquables */
+        /* Boutons de navigation cliquables */
         .skills-container {
             display: flex;
             flex-wrap: wrap;
@@ -125,6 +125,7 @@
             text-decoration: none;
             transition: all 0.25s ease;
             cursor: pointer;
+            text-transform: none; /* Conserve la casse exacte choisie */
         }
         
         .skill-badge:hover {
@@ -161,12 +162,12 @@
             visibility: hidden;
             pointer-events: none;
         }
-        #section-identite { top: 15%; }
-        #section-charte { top: 30%; }
-        #section-social { top: 45%; }
-        #section-edition { top: 60%; }
-        #section-ecommerce { top: 75%; }
-        #section-packaging { top: 90%; }
+        #section-apropos { top: 15%; }
+        #section-demarche { top: 30%; }
+        #section-references { top: 45%; }
+        #section-social { top: 60%; }
+        #section-edition { top: 75%; }
+        #section-ecommerce { top: 90%; }
 
         /* Section de contact et fin de page */
         .contact-section {
@@ -243,25 +244,25 @@
             Création d'identités visuelles percutantes et de concepts graphiques sur-mesure. Traduction de vos valeurs en direction artistique unique.
         </p>
 
-        <!-- Titres cliquables pour naviguer directement dans l'image -->
+        <!-- Titres cliquables de navigation mis à jour -->
         <div class="skills-container">
-            <a href="#section-identite" class="skill-badge">Identité Visuelle</a>
-            <a href="#section-charte" class="skill-badge">Charte Graphique</a>
-            <a href="#section-social" class="skill-badge">Social Media</a>
-            <a href="#section-edition" class="skill-badge">Édition & Print</a>
-            <a href="#section-ecommerce" class="skill-badge">E-commerce</a>
-            <a href="#section-packaging" class="skill-badge">Packaging</a>
+            <a href="#section-apropos" class="skill-badge">"about me" page bonjour</a>
+            <a href="#section-demarche" class="skill-badge">ma demarche</a>
+            <a href="#section-references" class="skill-badge">quelques références</a>
+            <a href="#section-social" class="skill-badge">Social média</a>
+            <a href="#section-edition" class="skill-badge">édition</a>
+            <a href="#section-ecommerce" class="skill-badge">e-commerce</a>
         </div>
     </header>
 
     <div class="container">
         <!-- Repères invisibles pour le saut de page au clic -->
-        <div id="section-identite" class="scroll-anchor"></div>
-        <div id="section-charte" class="scroll-anchor"></div>
+        <div id="section-apropos" class="scroll-anchor"></div>
+        <div id="section-demarche" class="scroll-anchor"></div>
+        <div id="section-references" class="scroll-anchor"></div>
         <div id="section-social" class="scroll-anchor"></div>
         <div id="section-edition" class="scroll-anchor"></div>
         <div id="section-ecommerce" class="scroll-anchor"></div>
-        <div id="section-packaging" class="scroll-anchor"></div>
 
         <!-- Image optimisée -->
         <img src="portfolio.jpg" alt="Portfolio de Nirilin" class="portfolio-img" loading="eager" decoding="async">
@@ -280,5 +281,4 @@
     </footer>
 
 </body>
-            </html>
-            
+</html>
