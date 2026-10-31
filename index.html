@@ -82,11 +82,6 @@
             text-transform: uppercase;
         }
         
-        h1 .thin-name {
-            font-weight: 300;
-            color: var(--accent-gold);
-        }
-        
         .role-text {
             font-size: 0.85rem;
             color: var(--text-muted);
@@ -153,7 +148,7 @@
             content-visibility: auto;
         }
         
-        /* Ancres de navigation invisibles */
+        /* Ancres de navigation positionnées par page approximative sur l'image (divisée en 6 parties) */
         .scroll-anchor {
             position: absolute;
             left: 0;
@@ -162,12 +157,12 @@
             visibility: hidden;
             pointer-events: none;
         }
-        #section-apropos { top: 15%; }
-        #section-demarche { top: 30%; }
-        #section-references { top: 45%; }
-        #section-social { top: 60%; }
-        #section-edition { top: 75%; }
-        #section-ecommerce { top: 90%; }
+        #section-apropos { top: 0%;; }      /* Page 1 (Début) */
+        #section-demarche { top: 50%; }     /* Page 4 (Milieu-bas) */
+        #section-references { top: 66%; }   /* Page 5 */
+        #section-social { top: 83%; }       /* Page 6 (Partie haute) */
+        #section-edition { top: 91%; }      /* Page 6 (Partie milieu) */
+        #section-ecommerce { top: 97%; }    /* Page 6 (Fin) */
 
         /* Section de contact et fin de page */
         .contact-section {
@@ -244,9 +239,9 @@
             Création d'identités visuelles percutantes et de concepts graphiques sur-mesure. Traduction de vos valeurs en direction artistique unique.
         </p>
 
-        <!-- Titres cliquables de navigation corrigés -->
+        <!-- Titres cliquables de navigation -->
         <div class="skills-container">
-            <a href="#section-apropos" class="skill-badge">About me - Bonjour</a>
+            <a href="#section-apropos" class="skill-badge">About me</a>
             <a href="#section-demarche" class="skill-badge">Ma démarche</a>
             <a href="#section-references" class="skill-badge">Quelques références</a>
             <a href="#section-social" class="skill-badge">Social média</a>
