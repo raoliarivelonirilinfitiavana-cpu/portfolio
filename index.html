@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nirilin - Portfolio Graphiste</title>
     <!-- Importation de la police Poppins depuis Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,36 +13,78 @@
             box-sizing: border-box;
         }
         body {
-            background-color: #0c1524; /* Fond bleu nuit inspiré de votre design */
+            background-color: #0c1524; /* Fond bleu nuit profond inspiré de votre design */
             color: #ffffff;
-            font-family: 'Poppins', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
             text-align: center;
             line-height: 1.6;
         }
         header {
-            padding: 40px 20px;
-            background: #111e35;
-            border-bottom: 3px solid #d4af37; /* Jaune doré élégant de votre logo */
+            padding: 60px 20px 40px 20px;
+            background: linear-gradient(180deg, #111e35 0%, #0c1524 100%);
+            border-bottom: 2px solid rgba(212, 175, 55, 0.3);
         }
         h1 {
-            font-size: 1.5rem;
-            color: #d4af37; /* Titre aux couleurs de votre lettrage */
-            margin-bottom: 10px;
-            letter-spacing: 1px;
+            font-size: 1.8rem;
+            color: #d4af37;
+            margin-bottom: 8px;
+            letter-spacing: 1.5px;
             font-weight: 700;
         }
         /* Style "Thin" (léger) appliqué uniquement au premier mot RAOLIARIVELO */
         h1 .thin-name {
             font-weight: 300;
         }
-        header p {
-            font-size: 0.85rem;
+        .subtitle {
+            font-size: 0.9rem;
             color: #b0c4de;
+            margin-bottom: 20px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+        /* Style inspiré de votre référence : mini badge / encadré élégant */
+        .badge-intro {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.1);
+            color: #d4af37;
+            font-size: 0.75rem;
+            padding: 6px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            margin-bottom: 20px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .portfolio-bio {
+            font-size: 0.85rem;
+            color: #c5d3e8;
+            max-width: 700px;
+            margin: 0 auto 25px auto;
+            line-height: 1.6;
+        }
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .skill-badge {
+            background: #111e35;
+            color: #d4af37;
+            font-size: 0.75rem;
+            padding: 6px 14px;
+            border-radius: 6px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            font-weight: 500;
         }
         .container {
             width: 100%;
             margin: 0;
             padding: 0;
+            background-color: #080e1a;
         }
         .portfolio-img {
             width: 100%;
@@ -53,71 +95,78 @@
             box-shadow: none;
             margin: 0;
         }
-        /* Section de texte copiable et interactive sous l'image */
-        .info-section {
-            background: #111e35;
-            padding: 40px 20px;
-            margin-top: 0;
-            border-top: 2px solid #d4af37;
+        /* Section de contact style "carte sombre premium" */
+        .contact-section {
+            background: linear-gradient(0deg, #111e35 0%, #0c1524 100%);
+            padding: 50px 20px;
+            border-top: 2px solid rgba(212, 175, 55, 0.3);
         }
-        .info-section h2 {
-            font-size: 1.3rem;
+        .contact-card {
+            background: #080e1a;
+            display: inline-block;
+            padding: 25px 40px;
+            border-radius: 12px;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            max-width: 500px;
+            width: 100%;
+        }
+        .contact-card h3 {
             color: #d4af37;
+            font-size: 1.1rem;
             margin-bottom: 15px;
             font-weight: 600;
         }
-        .info-section p {
-            font-size: 0.95rem;
-            color: #b0c4de;
-            max-width: 800px;
-            margin: 0 auto 20px auto;
+        .contact-card p {
+            font-size: 0.85rem;
+            color: #ffffff;
+            margin-bottom: 8px;
         }
-        .contact-box {
-            background: #0c1524;
-            display: inline-block;
-            padding: 15px 30px;
-            border-radius: 8px;
-            border: 1px solid #d4af37;
-            margin-top: 10px;
-        }
-        .contact-box a {
+        .copyable-text {
+            user-select: text;
             color: #d4af37;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        .contact-box a:hover {
-            text-decoration: underline;
+            font-weight: 500;
         }
         footer {
-            background: #080e1a;
-            padding: 20px;
-            font-size: 0.8rem;
-            color: #7a92b2;
-            border-top: 1px solid #1e3a5f;
+            background: #050912;
+            padding: 25px;
+            font-size: 0.75rem;
+            color: #6c84a3;
+            border-top: 1px solid rgba(255,255,255,0.05);
         }
     </style>
 </head>
 <body>
 
     <header>
+        <div class="badge-intro">Portfolio Professionnel</div>
         <h1><span class="thin-name">RAOLIARIVELO</span> Nirilin Fitiavana</h1>
-        <p>Designer Graphique & Illustrateur - Antananarivo, Madagascar</p>
+        <p class="subtitle">Designer Graphique & Illustrateur — Antananarivo, Madagascar</p>
+        
+        <p class="portfolio-bio">
+            Création d'identités visuelles fortes et mémorables. Traduction de vos valeurs en concepts graphiques uniques à travers le branding, le digital et l'édition.
+        </p>
+
+        <div class="skills-container">
+            <span class="skill-badge">Identité Visuelle</span>
+            <span class="skill-badge">Charte Graphique</span>
+            <span class="skill-badge">Social Media</span>
+            <span class="skill-badge">Édition & Print</span>
+            <span class="skill-badge">E-commerce</span>
+            <span class="skill-badge">Packaging</span>
+        </div>
     </header>
 
     <div class="container">
         <img src="portfolio.jpg" alt="Portfolio de Nirilin" class="portfolio-img">
     </div>
 
-    <!-- Section de texte sélectionnable et copiable -->
-    <section class="info-section">
-        <h2>À propos de mes services</h2>
-        <p>
-            Spécialisé en identité visuelle, design de marque, affiches publicitaires, packagings et visuels pour e-commerce. 
-            Chaque projet est conçu avec une attention minutieuse aux détails et à l'impact visuel.
-        </p>
-        <div class="contact-box">
-            <p style="color: #ffffff; margin-bottom: 5px;">📞 Téléphone / WhatsApp : <span style="user-select: text; color: #d4af37;">+261 34 61 293 96</span></p>
-            <p style="color: #ffffff;">📧 Email : <span style="user-select: text; color: #d4af37;">raoliarivelonirilinfitiavana@gmail.com</span></p>
+    <!-- Section contact interactive et élégante -->
+    <section class="contact-section">
+        <div class="contact-card">
+            <h3>Travaillons ensemble</h3>
+            <p>📞 Téléphone / WhatsApp : <br><span class="copyable-text">+261 34 61 293 96</span></p>
+            <p style="margin-top: 12px;">📧 Email : <br><span class="copyable-text">raoliarivelonirilinfitiavana@gmail.com</span></p>
         </div>
     </section>
 
