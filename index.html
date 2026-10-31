@@ -13,13 +13,12 @@
             box-sizing: border-box;
         }
         
-        /* Ajout d'un défilement fluide pour l'effet de défilement */
         html {
             scroll-behavior: smooth;
         }
 
         body {
-            background-color: #0c1524; /* Fond bleu nuit profond inspiré de votre design */
+            background-color: #0c1524;
             color: #ffffff;
             font-family: 'Poppins', sans-serif;
             text-align: center;
@@ -27,86 +26,96 @@
         }
         
         header {
-            padding: 60px 20px 40px 20px;
+            padding: 50px 20px 30px 20px;
             background: linear-gradient(180deg, #111e35 0%, #0c1524 100%);
             border-bottom: 2px solid rgba(212, 175, 55, 0.3);
             position: relative;
             z-index: 10;
         }
         
+        /* Style du titre avec alignement des deux côtés (effet justifié) */
         h1 {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             color: #d4af37;
-            margin-bottom: 8px;
-            letter-spacing: 1.5px;
+            margin-bottom: 15px;
             font-weight: 700;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
-        /* Style "Thin" (léger) appliqué uniquement au premier mot RAOLIARIVELO */
-        h1 .thin-name {
+        /* Première ligne : RAOLIARIVELO en Thin (fin) et étiré pour correspondre à la largeur du bas */
+        h1 .top-name {
+            display: block;
             font-weight: 300;
+            font-size: 1.3rem;
+            letter-spacing: 4px; /* Ajuste l'espacement pour l'aligner avec le texte du dessous */
+            text-transform: uppercase;
+        }
+        
+        /* Deuxième ligne : NIRILIN FITIAVANA en bas en Bold (gras) */
+        h1 .bottom-name {
+            display: block;
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 2px;
         }
         
         .subtitle {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #b0c4de;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             font-weight: 400;
-            letter-spacing: 0.5px;
         }
         
-        /* Style inspiré de votre référence : mini badge / encadré élégant */
         .badge-intro {
             display: inline-block;
             background: rgba(212, 175, 55, 0.1);
             color: #d4af37;
-            font-size: 0.75rem;
-            padding: 6px 16px;
+            font-size: 0.7rem;
+            padding: 5px 14px;
             border-radius: 20px;
             border: 1px solid rgba(212, 175, 55, 0.3);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
         
         .portfolio-bio {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: #c5d3e8;
             max-width: 700px;
-            margin: 0 auto 25px auto;
-            line-height: 1.6;
+            margin: 0 auto 20px auto;
+            line-height: 1.5;
         }
         
         .skills-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
             max-width: 800px;
             margin: 0 auto;
         }
         
-        /* Style des badges de compétences en liens cliquables */
         .skill-badge {
             background: #111e35;
             color: #d4af37;
-            font-size: 0.75rem;
-            padding: 6px 14px;
+            font-size: 0.7rem;
+            padding: 5px 12px;
             border-radius: 6px;
             border: 1px solid rgba(212, 175, 55, 0.2);
             font-weight: 500;
-            text-decoration: none; /* Supprime le soulignement */
+            text-decoration: none;
             transition: all 0.2s ease;
-            cursor: pointer;
         }
         
-        /* Effet de survol sur les badges cliquables */
         .skill-badge:hover {
             background: #d4af37;
             color: #0c1524;
-            transform: translateY(-2px);
-            border-color: #d4af37;
         }
         
         .container {
@@ -119,43 +128,39 @@
         
         .portfolio-img {
             width: 100%;
-            height: auto !important; /* Force l'affichage complet de toute la hauteur de l'image */
+            height: auto !important;
             display: block;
             border: none;
-            border-radius: 0;
-            box-shadow: none;
             margin: 0;
         }
         
-        /* Section de contact style "carte sombre premium" */
         .contact-section {
             background: linear-gradient(0deg, #111e35 0%, #0c1524 100%);
-            padding: 50px 20px;
+            padding: 40px 20px;
             border-top: 2px solid rgba(212, 175, 55, 0.3);
         }
         
         .contact-card {
             background: #080e1a;
             display: inline-block;
-            padding: 25px 40px;
-            border-radius: 12px;
+            padding: 20px 30px;
+            border-radius: 10px;
             border: 1px solid rgba(212, 175, 55, 0.4);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            max-width: 500px;
+            max-width: 450px;
             width: 100%;
         }
         
         .contact-card h3 {
             color: #d4af37;
-            font-size: 1.1rem;
-            margin-bottom: 15px;
+            font-size: 1rem;
+            margin-bottom: 12px;
             font-weight: 600;
         }
         
         .contact-card p {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: #ffffff;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
         
         .copyable-text {
@@ -166,15 +171,13 @@
         
         footer {
             background: #050912;
-            padding: 25px;
+            padding: 20px;
             font-size: 0.75rem;
             color: #6c84a3;
             border-top: 1px solid rgba(255,255,255,0.05);
         }
 
-        /* Repères invisibles pour le défilement vers des sections précises de l'image.
-           L'image est très haute, nous plaçons donc des points d'ancrage invisibles 
-           à des hauteurs fixes pour simuler le défilement vers des pages/sections. */
+        /* Ancres pour les liens des compétences */
         .scroll-anchor {
             position: absolute;
             left: 0;
@@ -183,23 +186,25 @@
             visibility: hidden;
             pointer-events: none;
         }
-        
-        /* Placement des ancres. Nous avons 6 compétences et une image très haute.
-           Nous estimons la hauteur de chaque section. */
         #section-identite { top: 15%; }
         #section-charte { top: 30%; }
         #section-social { top: 45%; }
         #section-edition { top: 60%; }
         #section-ecommerce { top: 75%; }
         #section-packaging { top: 90%; }
-
     </style>
 </head>
 <body>
 
     <header>
         <div class="badge-intro">Portfolio Professionnel</div>
-        <h1><span class="thin-name">RAOLIARIVELO</span> Nirilin Fitiavana</h1>
+        
+        <!-- Titre avec RAOLIARIVELO en haut (Thin) et NIRILIN FITIAVANA en bas (Bold) alignés -->
+        <h1>
+            <span class="top-name">RAOLIARIVELO</span>
+            <span class="bottom-name">Nirilin Fitiavana</span>
+        </h1>
+        
         <p class="subtitle">Designer Graphique & Illustrateur — Antananarivo, Madagascar</p>
         
         <p class="portfolio-bio">
@@ -207,7 +212,6 @@
         </p>
 
         <div class="skills-container">
-            <!-- Modification des span en liens <a> avec des ancres internes (#id) -->
             <a href="#section-identite" class="skill-badge">Identité Visuelle</a>
             <a href="#section-charte" class="skill-badge">Charte Graphique</a>
             <a href="#section-social" class="skill-badge">Social Media</a>
@@ -218,7 +222,6 @@
     </header>
 
     <div class="container">
-        <!-- Ajout des ancres invisibles pour le défilement. -->
         <div id="section-identite" class="scroll-anchor"></div>
         <div id="section-charte" class="scroll-anchor"></div>
         <div id="section-social" class="scroll-anchor"></div>
@@ -229,12 +232,11 @@
         <img src="portfolio.jpg" alt="Portfolio de Nirilin" class="portfolio-img">
     </div>
 
-    <!-- Section contact interactive et élégante -->
     <section class="contact-section">
         <div class="contact-card">
             <h3>Travaillons ensemble</h3>
             <p>📞 Téléphone / WhatsApp : <br><span class="copyable-text">+261 34 61 293 96</span></p>
-            <p style="margin-top: 12px;">📧 Email : <br><span class="copyable-text">raoliarivelonirilinfitiavana@gmail.com</span></p>
+            <p style="margin-top: 10px;">📧 Email : <br><span class="copyable-text">raoliarivelonirilinfitiavana@gmail.com</span></p>
         </div>
     </section>
 
