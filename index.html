@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nirilin - Portfolio Graphiste</title>
     <!-- Importation de la police Poppins depuis Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -35,8 +35,8 @@
         h1 .thin-name {
             font-weight: 300;
         }
-        p {
-            font-size: 0.7rem;
+        header p {
+            font-size: 0.85rem;
             color: #b0c4de;
         }
         .container {
@@ -53,13 +53,47 @@
             box-shadow: none;
             margin: 0;
         }
-        footer {
+        /* Section de texte copiable et interactive sous l'image */
+        .info-section {
             background: #111e35;
-            padding: 30px 20px;
+            padding: 40px 20px;
             margin-top: 0;
-            border-top: 1px solid #1e3a5f;
-            font-size: 0.9rem;
+            border-top: 2px solid #d4af37;
+        }
+        .info-section h2 {
+            font-size: 1.3rem;
+            color: #d4af37;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .info-section p {
+            font-size: 0.95rem;
             color: #b0c4de;
+            max-width: 800px;
+            margin: 0 auto 20px auto;
+        }
+        .contact-box {
+            background: #0c1524;
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 8px;
+            border: 1px solid #d4af37;
+            margin-top: 10px;
+        }
+        .contact-box a {
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .contact-box a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background: #080e1a;
+            padding: 20px;
+            font-size: 0.8rem;
+            color: #7a92b2;
+            border-top: 1px solid #1e3a5f;
         }
     </style>
 </head>
@@ -74,8 +108,20 @@
         <img src="portfolio.jpg" alt="Portfolio de Nirilin" class="portfolio-img">
     </div>
 
+    <!-- Section de texte sélectionnable et copiable -->
+    <section class="info-section">
+        <h2>À propos de mes services</h2>
+        <p>
+            Spécialisé en identité visuelle, design de marque, affiches publicitaires, packagings et visuels pour e-commerce. 
+            Chaque projet est conçu avec une attention minutieuse aux détails et à l'impact visuel.
+        </p>
+        <div class="contact-box">
+            <p style="color: #ffffff; margin-bottom: 5px;">📞 Téléphone / WhatsApp : <span style="user-select: text; color: #d4af37;">+261 34 61 293 96</span></p>
+            <p style="color: #ffffff;">📧 Email : <span style="user-select: text; color: #d4af37;">raoliarivelonirilinfitiavana@gmail.com</span></p>
+        </div>
+    </section>
+
     <footer>
-        <p>Contact : +261 34 61 293 96 | raoliarivelonirilinfitiavana@gmail.com</p>
         <p>&copy; 2026 Nirilin. Tous droits réservés.</p>
     </footer>
 
