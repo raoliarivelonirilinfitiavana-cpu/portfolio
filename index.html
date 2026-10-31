@@ -3,10 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nirilin - Portfolio Graphiste</title>
+    <title>RAOLIARIVELO Nirilin - Portfolio Graphiste</title>
     <!-- Importation de la police Poppins depuis Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-color: #0c1524;
+            --card-bg: #111e35;
+            --card-border: rgba(212, 175, 55, 0.25);
+            --accent-gold: #d4af37;
+            --accent-gradient: linear-gradient(135deg, #d4af37 0%, #f3e5ab 100%);
+            --text-color: #ffffff;
+            --text-muted: #94a3b8;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -19,35 +29,54 @@
         }
 
         body {
-            background-color: #0c1524;
-            color: #ffffff;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             font-family: 'Poppins', sans-serif;
             text-align: center;
             line-height: 1.6;
+            overflow-x: hidden;
         }
         
-        /* En-tête moderne style Behance */
+        /* Effet de lueur d'ambiance en arrière-plan */
+        .ambient-glow {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, rgba(12, 21, 36, 0) 70%);
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        /* En-tête moderne */
         header {
-            padding: 50px 20px 35px 20px;
+            padding: 70px 20px 40px 20px;
             background: radial-gradient(circle at center, #162642 0%, #0c1524 100%);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+            border-bottom: 1px solid var(--card-border);
             position: relative;
             z-index: 10;
         }
         
-        .small-subtitle {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            color: #d4af37;
-            margin-bottom: 12px;
+        .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: var(--accent-gold);
+            border-radius: 20px;
+            font-size: 0.75rem;
             font-weight: 500;
+            margin-bottom: 18px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
         }
         
         h1 {
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             color: #ffffff;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             letter-spacing: 1.5px;
             font-weight: 700;
             text-transform: uppercase;
@@ -55,29 +84,22 @@
         
         h1 .thin-name {
             font-weight: 300;
-            color: #d4af37;
+            color: var(--accent-gold);
         }
         
         .role-text {
-            font-size: 0.8rem;
-            color: #94a3b8;
+            font-size: 0.85rem;
+            color: var(--text-muted);
             letter-spacing: 1px;
             margin-bottom: 20px;
             font-weight: 400;
         }
         
-        .divider {
-            width: 35px;
-            height: 2px;
-            background-color: #d4af37;
-            margin: 0 auto 20px auto;
-        }
-        
         .portfolio-bio {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: #cbd5e1;
             max-width: 650px;
-            margin: 0 auto 25px auto;
+            margin: 0 auto 30px auto;
             line-height: 1.7;
             font-weight: 300;
         }
@@ -87,31 +109,32 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 8px;
-            max-width: 800px;
+            gap: 10px;
+            max-width: 850px;
             margin: 0 auto;
         }
         
         .skill-badge {
-            background: #111e35;
-            color: #d4af37;
-            font-size: 0.7rem;
-            padding: 6px 14px;
-            border-radius: 6px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            background: var(--card-bg);
+            color: var(--accent-gold);
+            font-size: 0.75rem;
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 1px solid var(--card-border);
             font-weight: 500;
             text-decoration: none;
-            transition: all 0.2s ease;
+            transition: all 0.25s ease;
             cursor: pointer;
         }
         
         .skill-badge:hover {
-            background: #d4af37;
-            color: #0c1524;
-            transform: translateY(-2px);
+            background: var(--accent-gold);
+            color: var(--bg-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.25);
         }
         
-        /* Conteneur et optimisation extrême de l'image */
+        /* Conteneur et image principale */
         .container {
             width: 100%;
             margin: 0;
@@ -126,10 +149,10 @@
             display: block;
             border: none;
             margin: 0;
-            content-visibility: auto; /* Accélère grandement le rendu des très grandes images */
+            content-visibility: auto;
         }
         
-        /* Ancres de navigation invisibles positionnées sur l'image */
+        /* Ancres de navigation invisibles */
         .scroll-anchor {
             position: absolute;
             left: 0;
@@ -138,7 +161,6 @@
             visibility: hidden;
             pointer-events: none;
         }
-        /* Ajustez ces pourcentages si besoin selon l'emplacement exact dans votre image */
         #section-identite { top: 15%; }
         #section-charte { top: 30%; }
         #section-social { top: 45%; }
@@ -148,9 +170,9 @@
 
         /* Section de contact et fin de page */
         .contact-section {
-            background: linear-gradient(0deg, #162642 0%, #0c1524 100%);
-            padding: 50px 20px;
-            border-top: 1px solid rgba(212, 175, 55, 0.25);
+            background: linear-gradient(0deg, #162642 0%, var(--bg-color) 100%);
+            padding: 60px 20px;
+            border-top: 1px solid var(--card-border);
         }
         
         .thanks-title {
@@ -158,58 +180,65 @@
             letter-spacing: 2px;
             font-weight: 300;
             color: #ffffff;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             text-transform: uppercase;
         }
         
         .thanks-title span {
             font-weight: 700;
-            color: #d4af37;
+            color: var(--accent-gold);
             display: block;
             margin-top: 5px;
             font-size: 1.1rem;
         }
         
         .contact-card {
-            background: #080e1a;
+            background: var(--card-bg);
             display: inline-block;
-            padding: 20px 30px;
-            border-radius: 8px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            max-width: 450px;
+            padding: 25px 35px;
+            border-radius: 12px;
+            border: 1px solid var(--card-border);
+            max-width: 480px;
             width: 100%;
-            margin-top: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
         
         .contact-card p {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             color: #cbd5e1;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
         
         .copyable-text {
             user-select: text;
-            color: #d4af37;
+            color: var(--accent-gold);
             font-weight: 600;
         }
         
         footer {
             background: #05080f;
-            padding: 20px;
-            font-size: 0.7rem;
-            color: #64748b;
+            padding: 25px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
             border-top: 1px solid rgba(255,255,255,0.03);
             letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.6rem;
+            }
         }
     </style>
 </head>
 <body>
 
+    <div class="ambient-glow"></div>
+
     <header>
-        <div class="small-subtitle">Portfolio Professionnel</div>
+        <div class="badge">Portfolio Professionnel</div>
         <h1><span class="thin-name">RAOLIARIVELO</span> Nirilin Fitiavana</h1>
         <p class="role-text">Designer Graphique & Illustrateur — Antananarivo, Madagascar</p>
-        <div class="divider"></div>
         <p class="portfolio-bio">
             Création d'identités visuelles percutantes et de concepts graphiques sur-mesure. Traduction de vos valeurs en direction artistique unique.
         </p>
@@ -234,7 +263,7 @@
         <div id="section-ecommerce" class="scroll-anchor"></div>
         <div id="section-packaging" class="scroll-anchor"></div>
 
-        <!-- Image optimisée pour un chargement maximal fluide -->
+        <!-- Image optimisée -->
         <img src="portfolio.jpg" alt="Portfolio de Nirilin" class="portfolio-img" loading="eager" decoding="async">
     </div>
 
@@ -242,7 +271,7 @@
         <h2 class="thanks-title">Thanks for watching <span>Don't miss a new work</span></h2>
         <div class="contact-card">
             <p>📞 Téléphone / WhatsApp : <br><span class="copyable-text">+261 34 61 293 96</span></p>
-            <p style="margin-top: 10px;">📧 Email : <br><span class="copyable-text">raoliarivelonirilinfitiavana@gmail.com</span></p>
+            <p style="margin-top: 12px;">📧 Email : <br><span class="copyable-text">raoliarivelonirilinfitiavana@gmail.com</span></p>
         </div>
     </section>
 
@@ -251,4 +280,5 @@
     </footer>
 
 </body>
-</html>
+            </html>
+            
