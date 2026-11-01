@@ -1,5 +1,325 @@
-"title-wrapper">
-                <span class="typing-name"><span class="thin-name">raoliarivelo</span> nirilin fitiavana</span>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nirilin - Portfolio Graphiste</title>
+    <!-- Importation de la police Poppins depuis Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #0c1524;
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            line-height: 1.6;
+        }
+        
+        /* En-tête ultra-moderne avec lueur dorée */
+        header {
+            padding: 70px 20px 45px 20px;
+            background: radial-gradient(circle at center, #162642 0%, #0c1524 100%);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            position: relative;
+            z-index: 10;
+        }
+        
+        .tagline-top {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: #d4af37;
+            margin-bottom: 15px;
+            font-weight: 500;
+            animation: fadeInDown 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        
+        /* Titre enveloppé pour coller le curseur juste à la fin du nom, animé toutes les 10s */
+        .title-wrapper {
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        .typing-name {
+            font-size: 1.35rem;
+            color: #ffffff;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid #d4af37;
+            display: inline-block;
+            animation: typingName 10s steps(35, end) infinite, blink-caret 0.75s step-end infinite;
+        }
+
+        .typing-name .thin-name {
+            font-weight: 300;
+            color: #d4af37;
+        }
+
+        @keyframes typingName {
+            0% { width: 0; }
+            30% { width: 100%; }
+            85% { width: 100%; }
+            95% { width: 0; }
+            100% { width: 0; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #d4af37; }
+        }
+        
+        .role-text {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            letter-spacing: 1.5px;
+            margin-bottom: 25px;
+            font-weight: 400;
+            opacity: 0;
+            animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+        }
+        
+        .divider-line {
+            width: 0;
+            height: 2px;
+            background-color: #d4af37;
+            margin: 0 auto 25px auto;
+            box-shadow: 0 0 10px #d4af37;
+            animation: expandDivider 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+        }
+        
+        .portfolio-bio {
+            font-size: 0.8rem;
+            color: #cbd5e1;
+            max-width: 650px;
+            margin: 0 auto 30px auto;
+            line-height: 1.8;
+            font-weight: 300;
+            opacity: 0;
+            animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.7s forwards;
+        }
+
+        /* Animations d'apparition */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes expandDivider {
+            from { width: 0; }
+            to { width: 40px; }
+        }
+        
+        /* Boutons de compétences animés en cascade avec lueur dorée */
+        .nav-skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .skill-btn {
+            background: #111e35;
+            color: #d4af37;
+            font-size: 0.7rem;
+            padding: 8px 18px;
+            border-radius: 6px;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            font-weight: 500;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 0 8px rgba(212, 175, 55, 0.15);
+            opacity: 0;
+            animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .skill-btn:nth-child(1) { animation-delay: 0.9s; }
+        .skill-btn:nth-child(2) { animation-delay: 1.0s; }
+        .skill-btn:nth-child(3) { animation-delay: 1.1s; }
+        .skill-btn:nth-child(4) { animation-delay: 1.2s; }
+        .skill-btn:nth-child(5) { animation-delay: 1.3s; }
+        .skill-btn:nth-child(6) { animation-delay: 1.4s; }
+        
+        .skill-btn:hover, .skill-btn:active {
+            background: #d4af37;
+            color: #0c1524;
+            transform: translateY(-2px);
+            border-color: #d4af37;
+            box-shadow: 0 0 20px #d4af37, 0 0 35px rgba(212, 175, 55, 0.6);
+        }
+        
+        /* Conteneur de l'image optimisé */
+        .container {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #070b14;
+            position: relative;
+        }
+        
+        .portfolio-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: none;
+            margin: 0;
+            content-visibility: auto;
+        }
+        
+        /* Repères positionnés précisément selon vos 17 pages */
+        .scroll-anchor {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        #section-about { top: 0%; }           /* Page 1 : About me */
+        #section-demarche { top: 17.64%; }    /* Page 4 */
+        #section-references { top: 23.52%; }  /* Page 5 */
+        #section-social { top: 29.40%; }      /* Page 6 */
+        #section-edition { top: 58.80%; }     /* Page 11 */
+        #section-ecommerce { top: 70.56%; }   /* Page 13 */
+
+        /* Bouton "Remonter en haut" fixé en bas à droite avec lueur dorée */
+        .back-to-top {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #111e35;
+            color: #d4af37;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.2rem;
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            box-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .back-to-top:hover {
+            background: #d4af37;
+            color: #0c1524;
+            box-shadow: 0 0 20px #d4af37, 0 0 35px rgba(212, 175, 55, 0.7);
+            transform: translateY(-3px);
+        }
+
+        /* Section de fin de page minimaliste et moderne */
+        .contact-section {
+            background: linear-gradient(0deg, #162642 0%, #0c1524 100%);
+            padding: 70px 20px;
+            border-top: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        
+        .thanks-heading {
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            font-weight: 300;
+            color: #94a3b8;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+        
+        .thanks-heading span {
+            font-weight: 600;
+            color: #d4af37;
+            display: block;
+            margin-top: 8px;
+            font-size: 1rem;
+            letter-spacing: 2px;
+        }
+        
+        .contact-card {
+            background: rgba(11, 19, 34, 0.7);
+            display: inline-block;
+            padding: 25px 40px;
+            border-radius: 12px;
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            max-width: 450px;
+            width: 100%;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .contact-item {
+            margin-bottom: 15px;
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #64748b;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .contact-link {
+            font-size: 0.85rem;
+            color: #d4af37;
+            font-weight: 500;
+            text-decoration: none;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+        }
+
+        .contact-link:hover {
+            color: #ffffff;
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.8);
+            transform: translateY(-1px);
+        }
+        
+        footer {
+            background: #05080f;
+            padding: 30px 20px;
+            font-size: 0.65rem;
+            color: #64748b;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <header id="top-page">
+        <div class="tagline-top">The Best Is Our Passion</div>
+        
+        <!-- Titre : RAOLIARIVELO en majuscules, le reste en minuscules, animé toutes les 10s -->
+        <h1>
+            <span class="title-wrapper">
+                <span class="typing-name"><span class="thin-name">RAOLIARIVELO</span> nirilin fitiavana</span>
             </span>
         </h1>
         
@@ -22,4 +342,42 @@
     </header>
 
     <div class="container">
-        
+        <!-- Repères positionnés précisément pour vos 17 pages -->
+        <div id="section-about" class="scroll-anchor"></div>
+        <div id="section-demarche" class="scroll-anchor"></div>
+        <div id="section-references" class="scroll-anchor"></div>
+        <div id="section-social" class="scroll-anchor"></div>
+        <div id="section-edition" class="scroll-anchor"></div>
+        <div id="section-ecommerce" class="scroll-anchor"></div>
+
+        <!-- Image optimisée -->
+        <img src="portfolio.jpg" alt="Portfolio de Nirilin" class="portfolio-img" loading="lazy" decoding="async">
+    </div>
+
+    <!-- Bouton flottant pour remonter en haut automatiquement -->
+    <a href="#top-page" class="back-to-top" title="Remonter en haut">↑</a>
+
+    <!-- Section contact minimaliste et moderne -->
+    <section class="contact-section">
+        <h2 class="thanks-heading">Thanks For Watching <span>Let's collaborate on your next project</span></h2>
+        <div class="contact-card">
+            <div class="contact-item">
+                <span class="contact-label">WhatsApp</span>
+                <!-- Lien direct vers WhatsApp avec votre numéro -->
+                <a href="https://wa.me/261346129396" target="_blank" class="contact-link">+261 34 61 293 96</a>
+            </div>
+            <div class="contact-item" style="margin-top: 18px;">
+                <span class="contact-label">Email Direct</span>
+                <!-- Lien direct vers l'application mail -->
+                <a href="mailto:raoliarivelonirilinfitiavana@gmail.com" class="contact-link">raoliarivelonirilinfitiavana@gmail.com</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 RAOLIARIVELO Nirilin Fitiavana &bull; Tous droits réservés</p>
+    </footer>
+
+</body>
+  </html>
+  
