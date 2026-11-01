@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nirilin - Portfolio Graphiste</title>
+    <title>nirilin - Portfolio Graphiste</title>
     <!-- Importation de la police Poppins depuis Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -41,20 +41,41 @@
             color: #d4af37;
             margin-bottom: 15px;
             font-weight: 500;
+            animation: fadeInDown 1s ease-out;
         }
         
-        h1 {
-            font-size: 1.9rem;
+        /* Animation effet machine à écrire toutes les 5 secondes pour le nom */
+        .typing-name {
+            font-size: 1.8rem;
             color: #ffffff;
             margin-bottom: 8px;
             letter-spacing: 2px;
             font-weight: 700;
-            text-transform: uppercase;
+            text-transform: lowercase;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid #d4af37;
+            display: inline-block;
+            max-width: 100%;
+            animation: typingName 5s steps(35, end) infinite, blink-caret 0.75s step-end infinite;
         }
-        
-        h1 .thin-name {
+
+        .typing-name .thin-name {
             font-weight: 300;
             color: #d4af37;
+        }
+
+        @keyframes typingName {
+            0% { width: 0; }
+            35% { width: 100%; }
+            75% { width: 100%; }
+            90% { width: 0; }
+            100% { width: 0; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #d4af37; }
         }
         
         .role-text {
@@ -63,6 +84,7 @@
             letter-spacing: 1.5px;
             margin-bottom: 25px;
             font-weight: 400;
+            animation: fadeIn 1.5s ease-out;
         }
         
         .divider-line {
@@ -71,6 +93,7 @@
             background-color: #d4af37;
             margin: 0 auto 25px auto;
             box-shadow: 0 0 10px #d4af37;
+            animation: expandDivider 1.5s ease-out;
         }
         
         .portfolio-bio {
@@ -80,6 +103,25 @@
             margin: 0 auto 30px auto;
             line-height: 1.8;
             font-weight: 300;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        /* Animations d'apparition */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes expandDivider {
+            from { width: 0; }
+            to { width: 40px; }
         }
         
         /* Boutons de compétences cliquables avec effet de lueur externe */
@@ -90,6 +132,7 @@
             gap: 12px;
             max-width: 900px;
             margin: 0 auto;
+            animation: fadeInUp 1.8s ease-out;
         }
         
         .skill-btn {
@@ -116,7 +159,7 @@
             box-shadow: 0 0 20px #d4af37, 0 0 35px rgba(212, 175, 55, 0.6);
         }
         
-        /* Conteneur et optimisation extrême pour le chargement de la grande image */
+        /* Conteneur de l'image ultra-optimisé pour la légèreté */
         .container {
             width: 100%;
             margin: 0;
@@ -131,11 +174,10 @@
             display: block;
             border: none;
             margin: 0;
-            /* Empêche le navigateur de freezer en chargeant tout d'un coup */
-            content-visibility: auto; 
+            content-visibility: auto; /* Empêche le navigateur de ralentir */
         }
         
-        /* Repères positionnés précisément selon vos 17 pages (1 page = ~5.88%) */
+        /* Repères positionnés précisément selon vos 17 pages */
         .scroll-anchor {
             position: absolute;
             left: 0;
@@ -243,11 +285,17 @@
 
     <header id="top-page">
         <div class="tagline-top">The Best Is Our Passion</div>
-        <h1><span class="thin-name">RAOLIARIVELO</span> Nirilin Fitiavana</h1>
-        <p class="role-text">Designer Graphique & Illustrateur — Antananarivo, Madagascar</p>
+        
+        <!-- Nom en minuscules avec animation machine à écrire -->
+        <h1>
+            <span class="typing-name"><span class="thin-name">raoliarivelo</span> nirilin fitiavana</span>
+        </h1>
+        
+        <p class="role-text">designer graphique & illustrateur — antananarivo, madagascar</p>
+
         <div class="divider-line"></div>
         <p class="portfolio-bio">
-            Création d'identités visuelles percutantes et de concepts graphiques sur-mesure. Traduction de vos valeurs en direction artistique unique.
+            création d'identités visuelles percutantes et de concepts graphiques sur-mesure. traduction de vos valeurs en direction artistique unique.
         </p>
 
         <!-- Titres cliquables avec effet lumineux -->
@@ -262,7 +310,7 @@
     </header>
 
     <div class="container">
-        <!-- Repères invisibles positionnés précisément pour vos sections -->
+        <!-- Repères positionnés précisément pour vos 17 pages -->
         <div id="section-about" class="scroll-anchor"></div>
         <div id="section-demarche" class="scroll-anchor"></div>
         <div id="section-references" class="scroll-anchor"></div>
@@ -270,8 +318,8 @@
         <div id="section-edition" class="scroll-anchor"></div>
         <div id="section-ecommerce" class="scroll-anchor"></div>
 
-        <!-- Image optimisée pour un chargement asynchrone -->
-        <img src="portfolio.jpg" alt="Portfolio de Nirilin" class="portfolio-img" loading="eager" decoding="async">
+        <!-- Image optimisée et chargée intelligemment -->
+        <img src="portfolio.jpg" alt="Portfolio de nirilin" class="portfolio-img" loading="lazy" decoding="async">
     </div>
 
     <!-- Bouton flottant pour remonter en haut automatiquement -->
@@ -286,8 +334,9 @@
     </section>
 
     <footer>
-        <p>&copy; 2026 Nirilin. Tous droits réservés.</p>
+        <p>&copy; 2026 nirilin. tous droits réservés.</p>
     </footer>
 
 </body>
-</html>
+                                                                          </html>
+                                                                          
