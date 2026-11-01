@@ -44,11 +44,15 @@
             animation: fadeInDown 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
         
-        /* Titre réduit de 20% avec animation machine à écrire toutes les 10s */
+        /* Titre enveloppé pour coller le curseur juste à la fin du nom, avec animation toutes les 10s */
+        .title-wrapper {
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
         .typing-name {
             font-size: 1.35rem;
             color: #ffffff;
-            margin-bottom: 8px;
             letter-spacing: 1.5px;
             font-weight: 700;
             text-transform: uppercase;
@@ -56,8 +60,7 @@
             overflow: hidden;
             border-right: 2px solid #d4af37;
             display: inline-block;
-            max-width: 100%;
-            animation: typingName 10s steps(40, end) infinite, blink-caret 0.75s step-end infinite;
+            animation: typingName 10s steps(35, end) infinite, blink-caret 0.75s step-end infinite;
         }
 
         .typing-name .thin-name {
@@ -314,12 +317,14 @@
     <header id="top-page">
         <div class="tagline-top">The Best Is Our Passion</div>
         
-        <!-- Nom complet avec taille ajustée et animation machine à écrire toutes les 10 secondes -->
+        <!-- Titre avec curseur parfaitement collé à la fin du nom, animé toutes les 10 secondes -->
         <h1>
-            <span class="typing-name"><span class="thin-name">RAOLIARIVELO</span> Nirilin Fitiavana</span>
+            <span class="title-wrapper">
+                <span class="typing-name"><span class="thin-name">RAOLIARIVELO</span> Nirilin Fitiavana</span>
+            </span>
         </h1>
         
-        <p class="role-text">Designer Graphique — Antananarivo, Madagascar</p>
+        <p class="role-text">Designer Graphique & Illustrateur — Antananarivo, Madagascar</p>
 
         <div class="divider-line"></div>
         <p class="portfolio-bio">
@@ -363,7 +368,7 @@
                 <a href="https://wa.me/261346129396" target="_blank" class="contact-link">+261 34 61 293 96</a>
             </div>
             <div class="contact-item" style="margin-top: 18px;">
-                <span class="contact-label">Email Direct</span>
+                <span class="contact-label">Email</span>
                 <!-- Lien direct vers l'application mail -->
                 <a href="mailto:raoliarivelonirilinfitiavana@gmail.com" class="contact-link">raoliarivelonirilinfitiavana@gmail.com</a>
             </div>
@@ -371,8 +376,9 @@
     </section>
 
     <footer>
-        <p>&copy; 2026 RAOLIARIVELO Nirilin Fitiavana &bull; Tous droits réservés</p>
+        <p>&copy; Nirilin 2026 &bull; Tous droits réservés</p>
     </footer>
 
 </body>
-</html>
+                                                                        </html>
+                                                                        
