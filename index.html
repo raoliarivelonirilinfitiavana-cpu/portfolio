@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV - RAOLIARIVELO Nirilin Fitiavana</title>
+    <title>RAOLIARIVELO Nirilin Fitiavana - Portfolio Graphiste</title>
     <!-- Importation de la police Poppins depuis Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -12,6 +12,7 @@
             --card-bg: #111e35;
             --card-border: rgba(212, 175, 55, 0.25);
             --accent-gold: #d4af37;
+            --accent-gradient: linear-gradient(135deg, #d4af37 0%, #f3e5ab 100%);
             --text-color: #ffffff;
             --text-muted: #94a3b8;
         }
@@ -21,332 +22,248 @@
             padding: 0;
             box-sizing: border-box;
         }
+        
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
             font-family: 'Poppins', sans-serif;
+            text-align: center;
             line-height: 1.6;
-            padding: 40px 20px;
-            display: flex;
-            justify-content: center;
+            overflow-x: hidden;
         }
-
-        /* Animations fluides sur tous les textes */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(25px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        
+        /* Effet de lueur d'ambiance luxueuse en arrière-plan */
+        .ambient-glow {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 700px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, rgba(12, 21, 36, 0) 70%);
+            z-index: 1;
+            pointer-events: none;
         }
-
-        .cv-wrapper > * {
-            animation: fadeInUp 0.9s ease-out both;
-        }
-
-        .cv-wrapper {
-            width: 100%;
-            max-width: 900px;
-            background: #080e1a;
-            border: 2px solid var(--card-border);
-            border-radius: 16px;
-            display: grid;
-            grid-template-columns: 320px 1fr;
-            overflow: hidden;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.7);
-        }
-
-        /* Colonne Gauche */
-        .cv-sidebar {
-            background: #060a12;
-            border-right: 1px solid var(--card-border);
-            padding: 40px 25px;
-        }
-
-        .cv-back-btn {
-            display: inline-block;
-            margin-bottom: 25px;
-            color: var(--accent-gold);
-            text-decoration: none;
-            font-size: 0.75rem;
-            font-weight: 600;
-            border: 1px solid var(--card-border);
-            padding: 6px 12px;
-            border-radius: 6px;
-            transition: 0.3s;
-        }
-
-        .cv-back-btn:hover {
-            background: var(--accent-gold);
-            color: var(--bg-color);
-        }
-
-        .cv-section-title {
-            color: var(--bg-color);
-            background: var(--accent-gold);
-            font-size: 0.8rem;
-            font-weight: 700;
-            padding: 6px 12px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin: 25px 0 15px 0;
-            border-radius: 4px;
-            text-align: center;
-        }
-
-        .cv-contact-item {
-            font-size: 0.75rem;
-            color: #cbd5e1;
-            margin-bottom: 12px;
-            word-break: break-all;
-        }
-
-        .cv-skill-bar-label {
-            font-size: 0.7rem;
-            color: #ffffff;
-            margin-bottom: 4px;
-            font-weight: 500;
-        }
-
-        .cv-progress {
-            width: 100%;
-            height: 6px;
-            background: #111e35;
-            border-radius: 3px;
-            margin-bottom: 12px;
-            overflow: hidden;
-        }
-
-        .cv-progress-fill {
-            height: 100%;
-            background: var(--accent-gold);
-            border-radius: 3px;
-            animation: fillBar 1.2s ease-out forwards;
-        }
-
-        @keyframes fillBar {
-            from { width: 0; }
-        }
-
-        .cv-loisirs-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            text-align: center;
-            margin-top: 15px;
-        }
-
-        .cv-loisir-item {
-            background: #111e35;
-            border: 1px solid var(--card-border);
-            padding: 10px;
-            border-radius: 8px;
-            font-size: 0.7rem;
-            color: var(--accent-gold);
-        }
-
-        /* Colonne Droite */
-        .cv-main-content {
-            padding: 40px 30px;
-        }
-
-        .cv-header-name {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #ffffff;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            line-height: 1.2;
-        }
-
-        .cv-header-name span {
-            color: var(--accent-gold);
-        }
-
-        .cv-header-role {
-            display: inline-block;
-            background: rgba(212, 175, 55, 0.15);
-            color: var(--accent-gold);
-            padding: 4px 14px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin: 10px 0 15px 0;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .cv-bio-text {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-bottom: 25px;
-        }
-
-        .cv-block-title {
-            font-size: 0.95rem;
-            color: var(--accent-gold);
-            font-weight: 700;
-            text-transform: uppercase;
+        
+        /* En-tête moderne */
+        header {
+            padding: 80px 20px 45px 20px;
+            background: radial-gradient(circle at center, #162642 0%, #0c1524 100%);
             border-bottom: 1px solid var(--card-border);
-            padding-bottom: 5px;
-            margin: 25px 0 15px 0;
-            letter-spacing: 1px;
+            position: relative;
+            z-index: 10;
         }
-
-        .cv-info-row {
-            font-size: 0.8rem;
-            color: #cbd5e1;
-            margin-bottom: 8px;
-        }
-
-        .cv-info-row strong {
-            color: #ffffff;
-        }
-
-        .cv-timeline-item {
-            margin-bottom: 15px;
-            border-left: 2px solid var(--accent-gold);
-            padding-left: 12px;
-        }
-
-        .cv-timeline-year {
+        
+        .badge {
+            display: inline-block;
+            padding: 6px 18px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: var(--accent-gold);
+            border-radius: 30px;
             font-size: 0.75rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
+        h1 {
+            font-size: 2.4rem;
+            color: #ffffff;
+            margin-bottom: 12px;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        
+        .role-text {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            letter-spacing: 1.5px;
+            margin-bottom: 22px;
+            font-weight: 400;
+        }
+        
+        .portfolio-bio {
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            max-width: 650px;
+            margin: 0 auto 35px auto;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+        
+        /* Boutons de navigation élégants */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .skill-badge {
+            background: var(--card-bg);
+            color: var(--accent-gold);
+            font-size: 0.75rem;
+            padding: 10px 18px;
+            border-radius: 10px;
+            border: 1px solid var(--card-border);
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-transform: none;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .skill-badge:hover {
+            background: var(--accent-gold);
+            color: var(--bg-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
+        }
+        
+        /* Conteneur et image principale */
+        .container {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #050b14;
+            position: relative;
+        }
+        
+        .portfolio-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: none;
+            margin: 0;
+        }
+
+        /* Section de contact et fin de page */
+        .contact-section {
+            background: linear-gradient(0deg, #162642 0%, var(--bg-color) 100%);
+            padding: 70px 20px;
+            border-top: 1px solid var(--card-border);
+        }
+        
+        .thanks-title {
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+            font-weight: 300;
+            color: #ffffff;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+        
+        .thanks-title span {
+            font-weight: 700;
+            color: var(--accent-gold);
+            display: block;
+            margin-top: 5px;
+            font-size: 1.2rem;
+        }
+        
+        .contact-card {
+            background: var(--card-bg);
+            display: inline-block;
+            padding: 30px 40px;
+            border-radius: 14px;
+            border: 1px solid var(--card-border);
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+        
+        .contact-card p {
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            margin-bottom: 12px;
+        }
+        
+        .copyable-text {
+            user-select: text;
             color: var(--accent-gold);
             font-weight: 600;
         }
-
-        .cv-timeline-desc {
-            font-size: 0.8rem;
-            color: #cbd5e1;
-        }
-
-        .cv-skills-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-        }
-
-        .cv-skill-badge-item {
-            background: #111e35;
-            border: 1px solid var(--card-border);
-            padding: 8px 12px;
-            border-radius: 6px;
+        
+        footer {
+            background: #05080f;
+            padding: 30px;
             font-size: 0.75rem;
-            color: #ffffff;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255,255,255,0.03);
+            letter-spacing: 0.5px;
         }
 
-        @media (max-width: 768px) {
-            .cv-wrapper {
-                grid-template-columns: 1fr;
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.6rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="cv-wrapper">
-        <!-- Colonne Gauche -->
-        <div class="cv-sidebar">
-            <a href="index.html" class="cv-back-btn">← Retour au portfolio</a>
+    <div class="ambient-glow"></div>
 
-            <div class="cv-section-title">Contact</div>
-            <div class="cv-contact-item">📞 034 61 293 95</div>
-            <div class="cv-contact-item">📘 Nirlin Raoliarivelo / Nirin Design</div>
-            <div class="cv-contact-item">📸 Nirlin 03</div>
-            <div class="cv-contact-item">📍 Lot IIN 26 Bis C Analamahitsy</div>
-            <div class="cv-contact-item">📧 raoliarivelonirilinfitiavana@gmail.com</div>
+    <header>
+        <div class="badge">Portfolio Professionnel</div>
+        <h1>RAOLIARIVELO Nirilin Fitiavana</h1>
+        <p class="role-text">Designer Graphique & Illustrateur — Antananarivo, Madagascar</p>
+        <p class="portfolio-bio">
+            Création d'identités visuelles percutantes et de concepts graphiques sur-mesure. Traduction de vos valeurs en direction artistique unique.
+        </p>
 
-            <div class="cv-section-title">Logiciels</div>
-            <div class="cv-skill-bar-label">PHOTOSHOP</div>
-            <div class="cv-progress"><div class="cv-progress-fill" style="width: 95%;"></div></div>
-            <div class="cv-skill-bar-label">ILLUSTRATOR</div>
-            <div class="cv-progress"><div class="cv-progress-fill" style="width: 90%;"></div></div>
-            <div class="cv-skill-bar-label">ADOBE PREMIER</div>
-            <div class="cv-progress"><div class="cv-progress-fill" style="width: 80%;"></div></div>
-            <div class="cv-skill-bar-label">FL STUDIO</div>
-            <div class="cv-progress"><div class="cv-progress-fill" style="width: 75%;"></div></div>
-            <div class="cv-skill-bar-label">AFTER EFFECT</div>
-            <div class="cv-progress"><div class="cv-progress-fill" style="width: 85%;"></div></div>
-
-            <div class="cv-section-title">Languages</div>
-            <div class="cv-skill-bar-label">MALAGASY</div>
-            <div class="cv-progress"><div class="cv-progress-fill" style="width: 100%;"></div></div>
-            <div class="cv-skill-bar-label">FRANÇAIS</div>
-            <div class="cv-progress"><div class="cv-progress-fill" style="width: 90%;"></div></div>
-            <div class="cv-skill-bar-label">ANGLAIS</div>
-            <div class="cv-progress"><div class="cv-progress-fill" style="width: 70%;"></div></div>
-
-            <div class="cv-section-title">Loisirs</div>
-            <div class="cv-loisirs-grid">
-                <div class="cv-loisir-item">📷 Photo</div>
-                <div class="cv-loisir-item">🎵 Music</div>
-                <div class="cv-loisir-item">🎮 Jeu vidéo</div>
-                <div class="cv-loisir-item">⚽ Football</div>
-            </div>
+        <!-- Boutons de navigation reliés aux pages exactes de votre image -->
+        <div class="skills-container">
+            <button class="skill-badge" onclick="scrollToPage(0)">About me</button>
+            <button class="skill-badge" onclick="scrollToPage(23.1)">Ma démarche</button>
+            <button class="skill-badge" onclick="scrollToPage(30.8)">Quelques références</button>
+            <button class="skill-badge" onclick="scrollToPage(38.4)">Social media</button>
+            <button class="skill-badge" onclick="scrollToPage(76.9)">Édition</button>
+            <button class="skill-badge" onclick="scrollToPage(92.3)">E-commerce</button>
         </div>
+    </header>
 
-        <!-- Colonne Droite -->
-        <div class="cv-main-content">
-            <h2 class="cv-header-name">Raoliarivelo <span>Nirilin Fitiavana</span></h2>
-            <div class="cv-header-role">Graphiste et Illustrateur</div>
-            <p class="cv-bio-text">Graphiste enthousiaste et passionné depuis toujours par l'image et le dessin.</p>
-
-            <div class="cv-block-title">Profil</div>
-            <div class="cv-info-row"><strong>Date de naissance :</strong> 03 Mars 1999</div>
-            <div class="cv-info-row"><strong>Lieu de naissance :</strong> Ambohitsoa</div>
-            <div class="cv-info-row"><strong>Situation familiale :</strong> Marié</div>
-            <div class="cv-info-row"><strong>Nationalité :</strong> MALAGASY</div>
-
-            <div class="cv-block-title">Expériences Professionnelles</div>
-            <div class="cv-timeline-item">
-                <div class="cv-timeline-year">2019 - 2021</div>
-                <div class="cv-timeline-desc">Graphiste Chez Lyas Boutique</div>
-            </div>
-            <div class="cv-timeline-item">
-                <div class="cv-timeline-year">2021 - 2023</div>
-                <div class="cv-timeline-desc">Graphiste Chez Smiliin Meta Agency</div>
-            </div>
-
-            <div class="cv-block-title">Compétences Personnelles</div>
-            <div class="cv-skills-grid">
-                <div class="cv-skill-badge-item"><span>Leader Ship</span> <span>★ 90%</span></div>
-                <div class="cv-skill-badge-item"><span>Créatif</span> <span>★ 98%</span></div>
-                <div class="cv-skill-badge-item"><span>Sérieux</span> <span>★ 95%</span></div>
-                <div class="cv-skill-badge-item"><span>Sens de l'écoute</span> <span>★ 95%</span></div>
-            </div>
-
-            <div class="cv-block-title">Education</div>
-            <div class="cv-timeline-item">
-                <div class="cv-timeline-year">2019 - 2020</div>
-                <div class="cv-timeline-desc">Bacc +2 en Multimédia et Communication à l'Université GSI.</div>
-            </div>
-            <div class="cv-timeline-item">
-                <div class="cv-timeline-year">2016 - 2017</div>
-                <div class="cv-timeline-desc">Baccalauréat série A2 au Lycée Privé ACEEM.</div>
-            </div>
-            <div class="cv-timeline-item">
-                <div class="cv-timeline-year">2015 - 2016</div>
-                <div class="cv-timeline-desc">Brevet d'Études Professionnelles en installation Sanitaire et Thermique à CFP Ampasampito.</div>
-            </div>
-            <div class="cv-timeline-item">
-                <div class="cv-timeline-year">2012 - 2013</div>
-                <div class="cv-timeline-desc">Brevet d'Études du premier Cycle.</div>
-            </div>
-            <div class="cv-timeline-item">
-                <div class="cv-timeline-year">2009 - 2010</div>
-                <div class="cv-timeline-desc">Certificat d'Études Primaires Élémentaires.</div>
-            </div>
-        </div>
+    <div class="container">
+        <!-- Image principale du portfolio -->
+        <img src="portfolio.jpg" alt="Portfolio de Nirilin" id="portfolioImage" class="portfolio-img" loading="eager" decoding="async">
     </div>
 
-</body>
-                </html>
+    <section class="contact-section">
+        <h2 class="thanks-title">Thanks for watching <span>Don't miss a new work</span></h2>
+        <div class="contact-card">
+            <p>📞 Téléphone / WhatsApp : <br><span class="copyable-text">+261 34 61 293 96</span></p>
+            <p style="margin-top: 12px;">📧 Email : <br><span class="copyable-text">raoliarivelonirilinfitiavana@gmail.com</span></p>
+        </div>
+    </section>
 
+    <footer>
+        <p>&copy; 2026 Nirilin. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        // Fonction JavaScript pour un défilement ultra-précis par pourcentage de l'image
+        function scrollToPage(percentage) {
+            const img = document.getElementById('portfolioImage');
+            const imgTop = img.getBoundingClientRect().top + window.pageYOffset;
+            const imgHeight = img.offsetHeight;
+            const targetY = imgTop + (imgHeight * (percentage / 100));
+            
+            window.scrollTo({
+                top: targetY,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>
