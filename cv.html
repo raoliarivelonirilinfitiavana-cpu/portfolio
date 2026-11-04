@@ -56,13 +56,13 @@
             background: #080e1a;
             border: 2px solid var(--card-border);
             border-radius: 16px;
-            display: flex;
-            flex-direction: column; /* Organisation verticale pour un ordre parfait sur mobile et PC */
+            display: grid;
+            grid-template-columns: 1fr; /* Sur mobile : tout l'un sous l'autre */
             overflow: hidden;
             box-shadow: 0 25px 60px rgba(0,0,0,0.7);
         }
 
-        /* Bouton de retour en haut */
+        /* Barre supérieure avec le bouton de retour */
         .top-nav-bar {
             padding: 25px 30px 10px 30px;
             background: #060a12;
@@ -90,7 +90,78 @@
             transform: translateY(-2px);
         }
 
-        /* Contenu Principal (Nom, Expériences, etc. tout en haut) */
+        /* Sidebar / Contact, Logiciels, Langues, Loisirs */
+        .cv-sidebar {
+            background: #060a12;
+            border-bottom: 1px solid var(--card-border);
+            padding: 40px 30px;
+        }
+
+        .cv-section-title {
+            color: var(--bg-color);
+            background: var(--accent-gold);
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 6px 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 25px 0 15px 0;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .cv-contact-item {
+            font-size: 0.75rem;
+            color: #cbd5e1;
+            margin-bottom: 12px;
+            word-break: break-all;
+        }
+
+        .cv-skill-bar-label {
+            font-size: 0.7rem;
+            color: #ffffff;
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+
+        .cv-progress {
+            width: 100%;
+            height: 6px;
+            background: #111e35;
+            border-radius: 3px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .cv-progress-fill {
+            height: 100%;
+            background: var(--accent-gold);
+            border-radius: 3px;
+            animation: fillBar 1.2s ease-out forwards;
+        }
+
+        @keyframes fillBar {
+            from { width: 0; }
+        }
+
+        .cv-loisirs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .cv-loisir-item {
+            background: #111e35;
+            border: 1px solid var(--card-border);
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 0.7rem;
+            color: var(--accent-gold);
+        }
+
+        /* Colonne Principale (Nom, Profil, Expériences, etc.) */
         .cv-main-content {
             padding: 40px 30px;
             text-align: left;
@@ -186,87 +257,16 @@
             justify-content: space-between;
         }
 
-        /* Sidebar / Infos secondaires (Contact, Logiciels, Langues, Loisirs en dessous) */
-        .cv-sidebar {
-            background: #060a12;
-            border-top: 1px solid var(--card-border);
-            padding: 40px 30px;
-        }
-
-        .cv-section-title {
-            color: var(--bg-color);
-            background: var(--accent-gold);
-            font-size: 0.8rem;
-            font-weight: 700;
-            padding: 6px 12px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin: 25px 0 15px 0;
-            border-radius: 4px;
-            text-align: center;
-        }
-
-        .cv-contact-item {
-            font-size: 0.75rem;
-            color: #cbd5e1;
-            margin-bottom: 12px;
-            word-break: break-all;
-        }
-
-        .cv-skill-bar-label {
-            font-size: 0.7rem;
-            color: #ffffff;
-            margin-bottom: 4px;
-            font-weight: 500;
-        }
-
-        .cv-progress {
-            width: 100%;
-            height: 6px;
-            background: #111e35;
-            border-radius: 3px;
-            margin-bottom: 12px;
-            overflow: hidden;
-        }
-
-        .cv-progress-fill {
-            height: 100%;
-            background: var(--accent-gold);
-            border-radius: 3px;
-            animation: fillBar 1.2s ease-out forwards;
-        }
-
-        @keyframes fillBar {
-            from { width: 0; }
-        }
-
-        .cv-loisirs-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            text-align: center;
-            margin-top: 15px;
-        }
-
-        .cv-loisir-item {
-            background: #111e35;
-            border: 1px solid var(--card-border);
-            padding: 10px;
-            border-radius: 8px;
-            font-size: 0.7rem;
-            color: var(--accent-gold);
-        }
-
+        /* Sur ordinateur (écrans larges) : la sidebar se place à gauche et le contenu principal à droite */
         @media (min-width: 768px) {
             .cv-wrapper {
-                display: grid;
                 grid-template-columns: 320px 1fr;
             }
             .top-nav-bar {
                 grid-column: 1 / -1;
             }
             .cv-sidebar {
-                border-top: none;
+                border-bottom: none;
                 border-right: 1px solid var(--card-border);
             }
         }
@@ -280,56 +280,11 @@
             <a href="index.html" class="cv-back-btn">← Retour au portfolio</a>
         </div>
 
-        <!-- Colonne Principale (Nom, Profil, Expériences et Compétences tout en haut) -->
-        <div class="cv-main-content">
-            <h2 class="cv-header-name">Raoliarivelo <span>Nirilin Fitiavana</span></h2>
-            <div class="cv-header-role">Graphiste</div>
-            <p class="cv-bio-text">Graphiste enthousiaste et passionné depuis toujours par l'image et le dessin.</p>
-
-            <div class="cv-block-title" style="margin-top: 0;">Profil</div>
-            <div class="cv-info-row"><strong>Date de naissance :</strong> 03 Mars 1999</div>
-            <div class="cv-info-row"><strong>Lieu de naissance :</strong> Ambohitsoa</div>
-            <div class="cv-info-row"><strong>Situation familiale :</strong> Marié</div>
-            <div class="cv-info-row"><strong>Nationalité :</strong> MALAGASY</div>
-
-            <div class="cv-block-title">Expériences Professionnelles</div>
-            <div class="cv-timeline-item">
-                <div class="cv-timeline-year">2019 - 2021</div>
-                <div class="cv-timeline-desc">Graphiste chez Lyas Boutique</div>
-            </div>
-            <div class="cv-timeline-item">
-                <div class="cv-timeline-year">2021 - 2023</div>
-                <div class="cv-timeline-desc">Graphiste chez Smiliin Meta Agency</div>
-            </div>
-            <div class="cv-timeline-item">
-                <div class="cv-timeline-year">2023 - Aujourd'hui</div>
-                <div class="cv-timeline-desc">Graphiste et retoucheur chez GSM55 (fiches produits, détourage et visuels e-commerce)</div>
-            </div>
-
-            <div class="cv-block-title">Compétences Personnelles</div>
-            <div class="cv-skills-grid">
-                <div class="cv-skill-badge-item"><span>Leader Ship</span> <span>★ 70%</span></div>
-                <div class="cv-skill-badge-item"><span>Créatif</span> <span>★ 90%</span></div>
-                <div class="cv-skill-badge-item"><span>Sérieux</span> <span>★ 95%</span></div>
-                <div class="cv-skill-badge-item"><span>Sens de l'écoute</span> <span>★ 95%</span></div>
-            </div>
-
-            <div class="cv-block-title">Education</div>
-            <div class="cv-timeline-item">
-                <div class="cv-timeline-year">2018 - 2020</div>
-                <div class="cv-timeline-desc">Bacc +2 en Multimédia et Communication à l'Université GSI.</div>
-            </div>
-            <div class="cv-timeline-item">
-                <div class="cv-timeline-year">2016 - 2017</div>
-                <div class="cv-timeline-desc">Baccalauréat série A2.</div>
-            </div>
-        </div>
-
-        <!-- Sidebar / Contact, Logiciels, Langues, Loisirs -->
+        <!-- Sidebar / Contact, Logiciels, Langues, Loisirs (à gauche sur PC, en haut sur mobile) -->
         <div class="cv-sidebar">
             <div class="cv-section-title" style="margin-top: 0;">Contact</div>
             <div class="cv-contact-item">📞 034 61 293 95</div>
-            <div class="cv-contact-item">📘 Raoliarivelo Nirlin Raoliarivelo / Nirin Design</div>
+            <div class="cv-contact-item">📘 Nirlin Raoliarivelo / Nirin Design</div>
             <div class="cv-contact-item">📸 Nirlin 03</div>
             <div class="cv-contact-item">📍 Lot IIN 26 Bis C Analamahitsy</div>
             <div class="cv-contact-item">📧 raoliarivelonirilinfitiavana@gmail.com</div>
@@ -362,8 +317,53 @@
                 <div class="cv-loisir-item">⚽ Football</div>
             </div>
         </div>
+
+        <!-- Colonne Principale (Nom, Profil, Expériences, Compétences, Éducation) -->
+        <div class="cv-main-content">
+            <h2 class="cv-header-name">Raoliarivelo <span>Nirilin Fitiavana</span></h2>
+            <div class="cv-header-role">Graphiste et Illustrateur</div>
+            <p class="cv-bio-text">Graphiste enthousiaste et passionné depuis toujours par l'image et le dessin.</p>
+
+            <div class="cv-block-title" style="margin-top: 0;">Profil</div>
+            <div class="cv-info-row"><strong>Date de naissance :</strong> 03 Mars 1999</div>
+            <div class="cv-info-row"><strong>Lieu de naissance :</strong> Ambohitsoa</div>
+            <div class="cv-info-row"><strong>Situation familiale :</strong> Marié</div>
+            <div class="cv-info-row"><strong>Nationalité :</strong> MALAGASY</div>
+
+            <div class="cv-block-title">Expériences Professionnelles</div>
+            <div class="cv-timeline-item">
+                <div class="cv-timeline-year">2019 - 2021</div>
+                <div class="cv-timeline-desc">Graphiste chez Lyas Boutique</div>
+            </div>
+            <div class="cv-timeline-item">
+                <div class="cv-timeline-year">2021 - 2023</div>
+                <div class="cv-timeline-desc">Graphiste chez Smiliin Meta Agency</div>
+            </div>
+            <div class="cv-timeline-item">
+                <div class="cv-timeline-year">2023 - Aujourd'hui</div>
+                <div class="cv-timeline-desc">Graphiste et retoucheur chez GSM55 (fiches produits, détourage et visuels e-commerce)</div>
+            </div>
+
+            <div class="cv-block-title">Compétences Personnelles</div>
+            <div class="cv-skills-grid">
+                <div class="cv-skill-badge-item"><span>Leader Ship</span> <span>★ 70%</span></div>
+                <div class="cv-skill-badge-item"><span>Créatif</span> <span>★ 78%</span></div>
+                <div class="cv-skill-badge-item"><span>Sérieux</span> <span>★ 75%</span></div>
+                <div class="cv-skill-badge-item"><span>Sens de l'écoute</span> <span>★ 75%</span></div>
+            </div>
+
+            <div class="cv-block-title">Education</div>
+            <div class="cv-timeline-item">
+                <div class="cv-timeline-year">2018 - 2020</div>
+                <div class="cv-timeline-desc">Bacc +2 en Multimédia et Communication à l'Université GSI.</div>
+            </div>
+            <div class="cv-timeline-item">
+                <div class="cv-timeline-year">2017</div>
+                <div class="cv-timeline-desc">Baccalauréat série A2 au Lycée Privé ACEEM.</div>
+            </div>
+        </div>
     </div>
 
 </body>
-                </html>
-                
+                    </html>
+                    
