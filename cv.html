@@ -57,7 +57,7 @@
             border: 2px solid var(--card-border);
             border-radius: 16px;
             display: grid;
-            grid-template-columns: 1fr; /* Sur mobile : tout l'un sous l'autre */
+            grid-template-columns: 1fr;
             overflow: hidden;
             box-shadow: 0 25px 60px rgba(0,0,0,0.7);
         }
@@ -90,78 +90,7 @@
             transform: translateY(-2px);
         }
 
-        /* Sidebar / Contact, Logiciels, Langues, Loisirs */
-        .cv-sidebar {
-            background: #060a12;
-            border-bottom: 1px solid var(--card-border);
-            padding: 40px 30px;
-        }
-
-        .cv-section-title {
-            color: var(--bg-color);
-            background: var(--accent-gold);
-            font-size: 0.8rem;
-            font-weight: 700;
-            padding: 6px 12px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin: 25px 0 15px 0;
-            border-radius: 4px;
-            text-align: center;
-        }
-
-        .cv-contact-item {
-            font-size: 0.75rem;
-            color: #cbd5e1;
-            margin-bottom: 12px;
-            word-break: break-all;
-        }
-
-        .cv-skill-bar-label {
-            font-size: 0.7rem;
-            color: #ffffff;
-            margin-bottom: 4px;
-            font-weight: 500;
-        }
-
-        .cv-progress {
-            width: 100%;
-            height: 6px;
-            background: #111e35;
-            border-radius: 3px;
-            margin-bottom: 12px;
-            overflow: hidden;
-        }
-
-        .cv-progress-fill {
-            height: 100%;
-            background: var(--accent-gold);
-            border-radius: 3px;
-            animation: fillBar 1.2s ease-out forwards;
-        }
-
-        @keyframes fillBar {
-            from { width: 0; }
-        }
-
-        .cv-loisirs-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            text-align: center;
-            margin-top: 15px;
-        }
-
-        .cv-loisir-item {
-            background: #111e35;
-            border: 1px solid var(--card-border);
-            padding: 10px;
-            border-radius: 8px;
-            font-size: 0.7rem;
-            color: var(--accent-gold);
-        }
-
-        /* Colonne Principale (Nom, Profil, Expériences, etc.) */
+        /* Colonne Principale (Nom, Profil, Expériences en premier) */
         .cv-main-content {
             padding: 40px 30px;
             text-align: left;
@@ -257,17 +186,92 @@
             justify-content: space-between;
         }
 
-        /* Sur ordinateur (écrans larges) : la sidebar se place à gauche et le contenu principal à droite */
+        /* Sidebar / Contact, Logiciels, Langues, Loisirs (mis à droite sur PC) */
+        .cv-sidebar {
+            background: #060a12;
+            border-top: 1px solid var(--card-border);
+            padding: 40px 30px;
+        }
+
+        .cv-section-title {
+            color: var(--bg-color);
+            background: var(--accent-gold);
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 6px 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 25px 0 15px 0;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .cv-contact-item {
+            font-size: 0.75rem;
+            color: #cbd5e1;
+            margin-bottom: 12px;
+            word-break: break-all;
+        }
+
+        .cv-skill-bar-label {
+            font-size: 0.7rem;
+            color: #ffffff;
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+
+        .cv-progress {
+            width: 100%;
+            height: 6px;
+            background: #111e35;
+            border-radius: 3px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .cv-progress-fill {
+            height: 100%;
+            background: var(--accent-gold);
+            border-radius: 3px;
+            animation: fillBar 1.2s ease-out forwards;
+        }
+
+        @keyframes fillBar {
+            from { width: 0; }
+        }
+
+        .cv-loisirs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .cv-loisir-item {
+            background: #111e35;
+            border: 1px solid var(--card-border);
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 0.7rem;
+            color: var(--accent-gold);
+        }
+
+        /* Sur ordinateur : on met le contenu principal à gauche et la sidebar de contact/logiciels à droite dans l'espace vide */
         @media (min-width: 768px) {
             .cv-wrapper {
-                grid-template-columns: 320px 1fr;
+                grid-template-columns: 1fr 320px; /* Contenu à gauche, Contact/Logiciels à droite */
             }
             .top-nav-bar {
                 grid-column: 1 / -1;
             }
             .cv-sidebar {
-                border-bottom: none;
-                border-right: 1px solid var(--card-border);
+                border-top: none;
+                border-left: 1px solid var(--card-border);
+                order: 2; /* Place la sidebar à droite sur PC */
+            }
+            .cv-main-content {
+                order: 1; /* Place le contenu principal (nom, expériences) à gauche sur PC */
             }
         }
     </style>
@@ -280,48 +284,10 @@
             <a href="index.html" class="cv-back-btn">← Retour au portfolio</a>
         </div>
 
-        <!-- Sidebar / Contact, Logiciels, Langues, Loisirs (à gauche sur PC, en haut sur mobile) -->
-        <div class="cv-sidebar">
-            <div class="cv-section-title" style="margin-top: 0;">Contact</div>
-            <div class="cv-contact-item">📞 034 61 293 95</div>
-            <div class="cv-contact-item">📘 Nirlin Raoliarivelo / Nirin Design</div>
-            <div class="cv-contact-item">📸 Nirlin 03</div>
-            <div class="cv-contact-item">📍 Lot IIN 26 Bis C Analamahitsy</div>
-            <div class="cv-contact-item">📧 raoliarivelonirilinfitiavana@gmail.com</div>
-
-            <div class="cv-section-title">Logiciels</div>
-            <div class="cv-skill-bar-label">PHOTOSHOP</div>
-            <div class="cv-progress"><div class="cv-progress-fill" style="width: 95%;"></div></div>
-            <div class="cv-skill-bar-label">ILLUSTRATOR</div>
-            <div class="cv-progress"><div class="cv-progress-fill" style="width: 60%;"></div></div>
-            <div class="cv-skill-bar-label">ADOBE PREMIER</div>
-            <div class="cv-progress"><div class="cv-progress-fill" style="width: 60%;"></div></div>
-            <div class="cv-skill-bar-label">FL STUDIO</div>
-            <div class="cv-progress"><div class="cv-progress-fill" style="width: 50%;"></div></div>
-            <div class="cv-skill-bar-label">AFTER EFFECT</div>
-            <div class="cv-progress"><div class="cv-progress-fill" style="width: 50%;"></div></div>
-
-            <div class="cv-section-title">Languages</div>
-            <div class="cv-skill-bar-label">MALAGASY</div>
-            <div class="cv-progress"><div class="cv-progress-fill" style="width: 100%;"></div></div>
-            <div class="cv-skill-bar-label">FRANÇAIS</div>
-            <div class="cv-progress"><div class="cv-progress-fill" style="width: 70%;"></div></div>
-            <div class="cv-skill-bar-label">ANGLAIS</div>
-            <div class="cv-progress"><div class="cv-progress-fill" style="width: 50%;"></div></div>
-
-            <div class="cv-section-title">Loisirs</div>
-            <div class="cv-loisirs-grid">
-                <div class="cv-loisir-item">📷 Photo</div>
-                <div class="cv-loisir-item">🎵 Music</div>
-                <div class="cv-loisir-item">🎮 Jeu vidéo</div>
-                <div class="cv-loisir-item">⚽ Football</div>
-            </div>
-        </div>
-
         <!-- Colonne Principale (Nom, Profil, Expériences, Compétences, Éducation) -->
         <div class="cv-main-content">
             <h2 class="cv-header-name">Raoliarivelo <span>Nirilin Fitiavana</span></h2>
-            <div class="cv-header-role">Graphiste</div>
+            <div class="cv-header-role">Graphiste et Illustrateur</div>
             <p class="cv-bio-text">Graphiste enthousiaste et passionné depuis toujours par l'image et le dessin.</p>
 
             <div class="cv-block-title" style="margin-top: 0;">Profil</div>
@@ -359,10 +325,49 @@
             </div>
             <div class="cv-timeline-item">
                 <div class="cv-timeline-year">2017</div>
-                <div class="cv-timeline-desc">Baccalauréat.</div>
+                <div class="cv-timeline-desc">Baccalauréat série A2.</div>
+            </div>
+        </div>
+
+        <!-- Sidebar / Contact, Logiciels, Langues, Loisirs (placé à droite sur PC) -->
+        <div class="cv-sidebar">
+            <div class="cv-section-title" style="margin-top: 0;">Contact</div>
+            <div class="cv-contact-item">📞 034 61 293 95</div>
+            <div class="cv-contact-item">📘 Nirlin Raoliarivelo / Nirin Design</div>
+            <div class="cv-contact-item">📸 Nirlin 03</div>
+            <div class="cv-contact-item">📍 Lot IIN 26 Bis C Analamahitsy</div>
+            <div class="cv-contact-item">📧 raoliarivelonirilinfitiavana@gmail.com</div>
+
+            <div class="cv-section-title">Logiciels</div>
+            <div class="cv-skill-bar-label">PHOTOSHOP</div>
+            <div class="cv-progress"><div class="cv-progress-fill" style="width: 95%;"></div></div>
+            <div class="cv-skill-bar-label">ILLUSTRATOR</div>
+            <div class="cv-progress"><div class="cv-progress-fill" style="width: 70%;"></div></div>
+            <div class="cv-skill-bar-label">ADOBE PREMIER</div>
+            <div class="cv-progress"><div class="cv-progress-fill" style="width: 60%;"></div></div>
+            <div class="cv-skill-bar-label">FL STUDIO</div>
+            <div class="cv-progress"><div class="cv-progress-fill" style="width: 55%;"></div></div>
+            <div class="cv-skill-bar-label">AFTER EFFECT</div>
+            <div class="cv-progress"><div class="cv-progress-fill" style="width: 65%;"></div></div>
+
+            <div class="cv-section-title">Languages</div>
+            <div class="cv-skill-bar-label">MALAGASY</div>
+            <div class="cv-progress"><div class="cv-progress-fill" style="width: 100%;"></div></div>
+            <div class="cv-skill-bar-label">FRANÇAIS</div>
+            <div class="cv-progress"><div class="cv-progress-fill" style="width: 70%;"></div></div>
+            <div class="cv-skill-bar-label">ANGLAIS</div>
+            <div class="cv-progress"><div class="cv-progress-fill" style="width: 50%;"></div></div>
+
+            <div class="cv-section-title">Loisirs</div>
+            <div class="cv-loisirs-grid">
+                <div class="cv-loisir-item">📷 Photo</div>
+                <div class="cv-loisir-item">🎵 Music</div>
+                <div class="cv-loisir-item">🎮 Jeu vidéo</div>
+                <div class="cv-loisir-item">⚽ Football</div>
             </div>
         </div>
     </div>
 
 </body>
-</html>
+                </html>
+                
