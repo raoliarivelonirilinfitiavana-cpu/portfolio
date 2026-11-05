@@ -56,8 +56,8 @@
             background: #080e1a;
             border: 2px solid var(--card-border);
             border-radius: 16px;
-            display: grid;
-            grid-template-columns: 1fr;
+            display: flex;
+            flex-direction: column;
             overflow: hidden;
             box-shadow: 0 25px 60px rgba(0,0,0,0.7);
         }
@@ -90,7 +90,7 @@
             transform: translateY(-2px);
         }
 
-        /* Colonne Principale (Nom, Profil, Expériences en premier) */
+        /* Colonne Principale */
         .cv-main-content {
             padding: 40px 30px;
             text-align: left;
@@ -186,7 +186,7 @@
             justify-content: space-between;
         }
 
-        /* Sidebar / Contact, Logiciels, Langues, Loisirs (mis à droite sur PC) */
+        /* Sidebar / Infos secondaires */
         .cv-sidebar {
             background: #060a12;
             border-top: 1px solid var(--card-border);
@@ -257,21 +257,17 @@
             color: var(--accent-gold);
         }
 
-        /* Sur ordinateur : on met le contenu principal à gauche et la sidebar de contact/logiciels à droite dans l'espace vide */
         @media (min-width: 768px) {
             .cv-wrapper {
-                grid-template-columns: 1fr 320px; /* Contenu à gauche, Contact/Logiciels à droite */
+                display: grid;
+                grid-template-columns: 320px 1fr;
             }
             .top-nav-bar {
                 grid-column: 1 / -1;
             }
             .cv-sidebar {
                 border-top: none;
-                border-left: 1px solid var(--card-border);
-                order: 2; /* Place la sidebar à droite sur PC */
-            }
-            .cv-main-content {
-                order: 1; /* Place le contenu principal (nom, expériences) à gauche sur PC */
+                border-right: 1px solid var(--card-border);
             }
         }
     </style>
@@ -284,7 +280,7 @@
             <a href="index.html" class="cv-back-btn">← Retour au portfolio</a>
         </div>
 
-        <!-- Colonne Principale (Nom, Profil, Expériences, Compétences, Éducation) -->
+        <!-- Colonne Principale -->
         <div class="cv-main-content">
             <h2 class="cv-header-name">Raoliarivelo <span>Nirilin Fitiavana</span></h2>
             <div class="cv-header-role">Graphiste et Illustrateur</div>
@@ -324,12 +320,12 @@
                 <div class="cv-timeline-desc">Bacc +2 en Multimédia et Communication à l'Université GSI.</div>
             </div>
             <div class="cv-timeline-item">
-                <div class="cv-timeline-year">2017</div>
+                <div class="cv-timeline-year">2016 - 2017</div>
                 <div class="cv-timeline-desc">Baccalauréat série A2.</div>
             </div>
         </div>
 
-        <!-- Sidebar / Contact, Logiciels, Langues, Loisirs (placé à droite sur PC) -->
+        <!-- Sidebar / Contact, Logiciels, Langues, Loisirs -->
         <div class="cv-sidebar">
             <div class="cv-section-title" style="margin-top: 0;">Contact</div>
             <div class="cv-contact-item">📞 034 61 293 95</div>
@@ -369,5 +365,4 @@
     </div>
 
 </body>
-                </html>
-                
+                                                                  </html>
